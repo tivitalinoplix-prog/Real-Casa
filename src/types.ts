@@ -16,6 +16,7 @@ export interface Student {
   tackles?: number;
   yellowCards?: number;
   redCards?: number;
+  accessCode?: string;
 }
 
 export interface WaitlistPerson {

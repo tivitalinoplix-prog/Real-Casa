@@ -261,23 +261,23 @@ const CREST_URL = 'https://i.postimg.cc/8kYGV4DF/Brasao.jpg';
 const initialStudents = [
   {
     id: 1, name: 'Lucas Silva', age: 12, category: 'sub13', guardian: 'Maria (Mãe)', phone: '11999999999',
-    photo: getBoyPhoto(1), position: 'Atacante', goals: 12, assists: 4, attendance: 90, yellowCard: false, paymentStatus: 'pending',
+    photo: getBoyPhoto(1), position: 'Atacante', goals: 12, assists: 4, attendance: 90, yellowCard: false, paymentStatus: 'pending', accessCode: 'RC-1111'
   },
   {
     id: 2, name: 'Pedro Santos', age: 14, category: 'sub15', guardian: 'João (Pai)', phone: '11988888888',
-    photo: getBoyPhoto(2), position: 'Zagueiro', goals: 2, assists: 1, attendance: 85, yellowCard: true, paymentStatus: 'paid',
+    photo: getBoyPhoto(2), position: 'Zagueiro', goals: 2, assists: 1, attendance: 85, yellowCard: true, paymentStatus: 'paid', accessCode: 'RC-2222'
   },
   {
     id: 3, name: 'Mateus Oliveira', age: 10, category: 'sub11', guardian: 'Ana (Mãe)', phone: '11977777777',
-    photo: getBoyPhoto(3), position: 'Meia', goals: 5, assists: 8, attendance: 95, yellowCard: false, paymentStatus: 'paid',
+    photo: getBoyPhoto(3), position: 'Meia', goals: 5, assists: 8, attendance: 95, yellowCard: false, paymentStatus: 'paid', accessCode: 'RC-3333'
   },
   {
     id: 4, name: 'Gabriel Costa', age: 13, category: 'sub13', guardian: 'Carlos (Pai)', phone: '11966666666',
-    photo: getBoyPhoto(4), position: 'Goleiro', goals: 0, assists: 0, attendance: 100, yellowCard: false, paymentStatus: 'review',
+    photo: getBoyPhoto(4), position: 'Goleiro', goals: 0, assists: 0, attendance: 100, yellowCard: false, paymentStatus: 'review', accessCode: 'RC-4444'
   },
   {
     id: 5, name: 'Felipe Mendes', age: 14, category: 'sub15', guardian: 'Roberto (Pai)', phone: '11955555555',
-    photo: getBoyPhoto(5), position: 'Atacante', goals: 9, assists: 2, attendance: 80, yellowCard: false, paymentStatus: 'pending',
+    photo: getBoyPhoto(5), position: 'Atacante', goals: 9, assists: 2, attendance: 80, yellowCard: false, paymentStatus: 'pending', accessCode: 'RC-5555'
   },
 ];
 
@@ -448,6 +448,8 @@ export default function App() {
   
   const [role, setRole] = useState(() => loadJSON(STORAGE_KEYS.role, null, STORAGE_VERSION));
   const [students, setStudents] = useState(() => loadJSON(STORAGE_KEYS.students, initialStudents, STORAGE_VERSION));
+  const [authFormActive, setAuthFormActive] = useState<'none' | 'gestor' | 'responsavel'>('none');
+  const [authInput, setAuthInput] = useState('');
   const [waitlist, setWaitlist] = useState(() => loadJSON(STORAGE_KEYS.waitlist, initialWaitlist, STORAGE_VERSION));
   const [gestorTab, setGestorTab] = useState(() => loadJSON(STORAGE_KEYS.gestorTab, 'alunos', STORAGE_VERSION));
   const [responsavelTab, setResponsavelTab] = useState(() => loadJSON(STORAGE_KEYS.responsavelTab, 'meuFilho', STORAGE_VERSION));
@@ -592,64 +594,112 @@ export default function App() {
               </div>
             </div>
 
-            <div className="relative w-full grid grid-cols-1 gap-14 py-8 px-4 shrink-0 mt-4 mb-8">
-              <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden -mx-8">
-                <div className="laser-line top-[5%] rotate-[8deg] scale-150" />
-                <div className="laser-line top-[50%] -rotate-[6deg] scale-150" />
-                <div className="laser-line bottom-[5%] rotate-[7deg] scale-150" />
-              </div>
+            <div className="relative w-full py-8 px-4 shrink-0 mt-4 mb-8 min-h-[300px] flex items-center justify-center">
+              <AnimatePresence mode="wait">
+                {authFormActive === 'none' && (
+                  <motion.div key="buttons" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} className="w-full grid grid-cols-1 gap-14 relative">
+                    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden -mx-8">
+                      <div className="laser-line top-[5%] rotate-[8deg] scale-150" />
+                      <div className="laser-line top-[50%] -rotate-[6deg] scale-150" />
+                      <div className="laser-line bottom-[5%] rotate-[7deg] scale-150" />
+                    </div>
 
-              <button onClick={() => setRole('gestor')} className="slashed-module group relative h-32 bg-[var(--pit-primary)]/10 border-l-[8px] border-[var(--pit-primary)] overflow-hidden flex items-center px-6 hover:bg-[var(--pit-primary)]/20 active:scale-95 shadow-[0_0_20px_rgba(106,27,154,0.1)] card-holo-glow" style={{ "--card-glow": "rgba(106,27,154,0.2)" } as any}>
-                <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
-                  <motion.div 
-                    animate={{ left: ["-100%", "200%"] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
-                    className="absolute h-[250%] w-12 bg-gradient-to-r from-transparent via-white to-transparent rotate-[35deg] -top-1/2" 
-                  />
-                </div>
-                <div className="flex items-center gap-4 z-10 translate-x-1 pointer-events-none">
-                  <motion.div 
-                    animate={{ boxShadow: ["0 0 10px rgba(106,27,154,0.4)", "0 0 25px rgba(106,27,154,0.7)", "0 0 10px rgba(106,27,154,0.4)"] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-12 h-12 bg-[var(--pit-primary)]/20 rounded-full flex items-center justify-center border border-[var(--pit-primary)]/50 shrink-0"
-                  >
-                    <Shield size={22} className="text-[var(--pit-primary)]" />
-                  </motion.div>
-                  <div className="text-left flex flex-col justify-center">
-                    <h3 className="font-massive italic text-3xl text-white uppercase leading-none mt-1">GESTOR</h3>
-                    <p className="text-[9px] tracking-[0.2em] text-[var(--pit-primary)] font-bold whitespace-nowrap mt-1">LEITURA_TÉCNICA_V.04</p>
-                  </div>
-                </div>
-                <div className="absolute top-0 right-0 w-10 h-10 bg-[var(--pit-primary)]/30 flex items-center justify-center group-hover:bg-[var(--pit-primary)] transition-colors pointer-events-none">
-                  <motion.svg animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7" /><path d="M7 7h10v10" /></motion.svg>
-                </div>
-              </button>
+                    <button onClick={() => setAuthFormActive('gestor')} className="slashed-module group relative h-32 bg-[var(--pit-primary)]/10 border-l-[8px] border-[var(--pit-primary)] overflow-hidden flex items-center px-6 hover:bg-[var(--pit-primary)]/20 active:scale-95 shadow-[0_0_20px_rgba(106,27,154,0.1)] card-holo-glow" style={{ "--card-glow": "rgba(106,27,154,0.2)" } as any}>
+                      <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
+                        <motion.div 
+                          animate={{ left: ["-100%", "200%"] }}
+                          transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
+                          className="absolute h-[250%] w-12 bg-gradient-to-r from-transparent via-white to-transparent rotate-[35deg] -top-1/2" 
+                        />
+                      </div>
+                      <div className="flex items-center gap-4 z-10 translate-x-1 pointer-events-none">
+                        <motion.div 
+                          animate={{ boxShadow: ["0 0 10px rgba(106,27,154,0.4)", "0 0 25px rgba(106,27,154,0.7)", "0 0 10px rgba(106,27,154,0.4)"] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                          className="w-12 h-12 bg-[var(--pit-primary)]/20 rounded-full flex items-center justify-center border border-[var(--pit-primary)]/50 shrink-0"
+                        >
+                          <Shield size={22} className="text-[var(--pit-primary)]" />
+                        </motion.div>
+                        <div className="text-left flex flex-col justify-center">
+                          <h3 className="font-massive italic text-3xl text-white uppercase leading-none mt-1">GESTOR</h3>
+                          <p className="text-[9px] tracking-[0.2em] text-[var(--pit-primary)] font-bold whitespace-nowrap mt-1">LEITURA_TÉCNICA_V.04</p>
+                        </div>
+                      </div>
+                      <div className="absolute top-0 right-0 w-10 h-10 bg-[var(--pit-primary)]/30 flex items-center justify-center group-hover:bg-[var(--pit-primary)] transition-colors pointer-events-none">
+                        <motion.svg animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7" /><path d="M7 7h10v10" /></motion.svg>
+                      </div>
+                    </button>
 
-              <button onClick={() => setRole('responsavel')} className="slashed-module group relative h-32 bg-[var(--pit-secondary)]/5 border-l-[8px] border-[var(--pit-secondary)] overflow-hidden flex items-center px-6 hover:bg-[var(--pit-secondary)]/10 active:scale-95 card-holo-glow" style={{ "--card-glow": "rgba(255,202,40,0.2)" } as any}>
-                <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
-                  <motion.div 
-                    animate={{ left: ["-100%", "200%"] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 1.5 }}
-                    className="absolute h-[250%] w-12 bg-gradient-to-r from-transparent via-white to-transparent rotate-[35deg] -top-1/2" 
-                  />
-                </div>
-                <div className="flex items-center gap-4 z-10 translate-x-1 pointer-events-none">
-                  <motion.div 
-                    animate={{ boxShadow: ["0 0 10px rgba(255,202,40,0.3)", "0 0 25px rgba(255,202,40,0.6)", "0 0 10px rgba(255,202,40,0.3)"] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                    className="w-12 h-12 bg-[var(--pit-secondary)]/20 rounded-full flex items-center justify-center border border-[var(--pit-secondary)]/50 shrink-0"
-                  >
-                    <UserIcon size={22} className="text-[var(--pit-secondary)]" />
+                    <button onClick={() => setAuthFormActive('responsavel')} className="slashed-module group relative h-32 bg-[var(--pit-secondary)]/5 border-l-[8px] border-[var(--pit-secondary)] overflow-hidden flex items-center px-6 hover:bg-[var(--pit-secondary)]/10 active:scale-95 card-holo-glow" style={{ "--card-glow": "rgba(255,202,40,0.2)" } as any}>
+                      <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
+                        <motion.div 
+                          animate={{ left: ["-100%", "200%"] }}
+                          transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 1.5 }}
+                          className="absolute h-[250%] w-12 bg-gradient-to-r from-transparent via-white to-transparent rotate-[35deg] -top-1/2" 
+                        />
+                      </div>
+                      <div className="flex items-center gap-4 z-10 translate-x-1 pointer-events-none">
+                        <motion.div 
+                          animate={{ boxShadow: ["0 0 10px rgba(255,202,40,0.3)", "0 0 25px rgba(255,202,40,0.6)", "0 0 10px rgba(255,202,40,0.3)"] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                          className="w-12 h-12 bg-[var(--pit-secondary)]/20 rounded-full flex items-center justify-center border border-[var(--pit-secondary)]/50 shrink-0"
+                        >
+                          <UserIcon size={22} className="text-[var(--pit-secondary)]" />
+                        </motion.div>
+                        <div className="text-left flex flex-col justify-center">
+                          <h3 className="font-massive italic text-3xl text-white uppercase leading-none mt-1">RESPONSÁVEL</h3>
+                          <p className="text-[9px] tracking-[0.2em] text-[var(--pit-secondary)] font-bold whitespace-nowrap mt-1">ACESSO_ATLETA_02</p>
+                        </div>
+                      </div>
+                      <div className="absolute top-0 right-0 w-10 h-10 bg-[var(--pit-secondary)]/30 flex items-center justify-center group-hover:bg-[var(--pit-secondary)] transition-colors pointer-events-none">
+                        <motion.svg animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-white group-hover:text-black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7" /><path d="M7 7h10v10" /></motion.svg>
+                      </div>
+                    </button>
                   </motion.div>
-                  <div className="text-left flex flex-col justify-center">
-                    <h3 className="font-massive italic text-3xl text-white uppercase leading-none mt-1">RESPONSÁVEL</h3>
-                    <p className="text-[9px] tracking-[0.2em] text-[var(--pit-secondary)] font-bold whitespace-nowrap mt-1">ACESSO_ATLETA_02</p>
-                  </div>
-                </div>
-                <div className="absolute top-0 right-0 w-10 h-10 bg-[var(--pit-secondary)]/30 flex items-center justify-center group-hover:bg-[var(--pit-secondary)] transition-colors pointer-events-none">
-                  <motion.svg animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-white group-hover:text-black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7" /><path d="M7 7h10v10" /></motion.svg>
-                </div>
-              </button>
+                )}
+
+                {authFormActive === 'gestor' && (
+                  <motion.form key="gestor-form" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="slashed-module w-full relative bg-[#020204]/80 backdrop-blur-xl border border-[var(--pit-primary)] p-6 z-20" onSubmit={(e) => { e.preventDefault(); if (authInput === '1234') { setRole('gestor'); setAuthFormActive('none'); } else { toast.error('Senha incorreta', { style: { background: '#E50000', color: '#fff', border: 'none' }}); setAuthInput(''); } }}>
+                    <button type="button" onClick={() => { setAuthFormActive('none'); setAuthInput(''); }} className="absolute top-4 right-4 text-white/40 hover:text-[var(--pit-primary)] transition-colors">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                    <div className="flex items-center gap-3 mb-6 mt-2">
+                      <Shield className="text-[var(--pit-primary)]" size={32} />
+                      <div>
+                        <h2 className="font-massive italic text-2xl text-white tracking-wider uppercase leading-none">Acesso Gestor</h2>
+                        <span className="text-[9px] text-[var(--pit-primary)] uppercase tracking-widest block mt-1">Protocolo Alfa</span>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <input type="password" value={authInput} onChange={(e) => setAuthInput(e.target.value)} placeholder="INSERIR SENHA" autoFocus className="w-full bg-black/50 border border-[var(--pit-primary)]/40 p-5 font-brand text-sm tracking-[0.3em] text-white outline-none focus:border-[var(--pit-primary)] text-center transition-all slashed-input placeholder:text-white/20" />
+                      <button type="submit" className="w-full h-14 bg-[var(--pit-primary)] text-white font-massive italic text-xl uppercase tracking-widest hover:bg-[var(--pit-primary)]/80 transition-colors slashed-button flex justify-center items-center gap-2">
+                        Autorizar
+                      </button>
+                    </div>
+                  </motion.form>
+                )}
+
+                {authFormActive === 'responsavel' && (
+                  <motion.form key="responsavel-form" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="slashed-module w-full relative bg-[#020204]/80 backdrop-blur-xl border border-[var(--pit-secondary)] p-6 z-20" onSubmit={(e) => { e.preventDefault(); const t = authInput.trim().toUpperCase(); const found = students.find(s => s.accessCode === t); if (found) { setSelectedStudentId(found.id); setRole('responsavel'); setAuthFormActive('none'); } else { toast.error('Token inválido ou não encontrado', { style: { background: '#E50000', color: '#fff', border: 'none' }}); setAuthInput(''); } }}>
+                    <button type="button" onClick={() => { setAuthFormActive('none'); setAuthInput(''); }} className="absolute top-4 right-4 text-white/40 hover:text-[var(--pit-secondary)] transition-colors">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                    <div className="flex items-center gap-3 mb-6 mt-2">
+                      <UserIcon className="text-[var(--pit-secondary)]" size={32} />
+                      <div>
+                        <h2 className="font-massive italic text-2xl text-white tracking-wider uppercase leading-none">Acesso Atleta</h2>
+                        <span className="text-[9px] text-[var(--pit-secondary)] uppercase tracking-widest block mt-1">Protocolo de Entrada</span>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <input type="text" value={authInput} onChange={(e) => setAuthInput(e.target.value)} placeholder="INSERIR TOKEN" autoFocus className="w-full bg-black/50 border border-[var(--pit-secondary)]/40 p-5 font-brand text-sm tracking-[0.3em] text-white outline-none focus:border-[var(--pit-secondary)] text-center transition-all slashed-input placeholder:text-white/20 uppercase" />
+                      <button type="submit" className="w-full h-14 bg-[var(--pit-secondary)] text-black font-massive italic text-xl uppercase tracking-widest hover:bg-[var(--pit-secondary)]/80 transition-colors slashed-button flex justify-center items-center gap-2">
+                        Acessar Portal
+                      </button>
+                    </div>
+                  </motion.form>
+                )}
+              </AnimatePresence>
             </div>
 
             <footer className="mt-auto border-t border-white/10 bg-black/60 backdrop-blur-xl pb-safe relative">
@@ -1300,9 +1350,29 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
     e.preventDefault();
     const phoneDigits = normalizePhoneBR(formData.phone);
     if (phoneDigits.length < 10) return toast.error('Telefone inválido');
-    setStudents([...students, { id: Date.now(), name: formData.name, age: Number(formData.age), category: formData.category, guardian: formData.guardian, position: formData.position, phone: phoneDigits, photo: formData.photo || getBoyPhoto(Date.now()), goals: 0, assists: 0, attendance: 100, yellowCard: false, paymentStatus: 'pending' }]);
+    
+    // Gerador de Token no Padrão RC-XXXX
+    const generatedToken = `RC-${Math.floor(1000 + Math.random() * 9000)}`;
+
+    setStudents([...students, { 
+      id: Date.now(), 
+      name: formData.name, 
+      age: Number(formData.age), 
+      category: formData.category, 
+      guardian: formData.guardian, 
+      position: formData.position, 
+      phone: phoneDigits, 
+      photo: formData.photo || getBoyPhoto(Date.now()), 
+      goals: 0, 
+      assists: 0, 
+      attendance: 100, 
+      yellowCard: false, 
+      paymentStatus: 'pending',
+      accessCode: generatedToken
+    }]);
+
     setShowForm(false);
-    toast.success('Atleta cadastrado com sucesso!');
+    toast.success('Atleta cadastrado com sucesso!', { description: `Token de acesso: ${generatedToken}` });
     setFormData({ name: '', age: '', category: 'sub11', guardian: '', phone: '', position: 'Não definido', photo: '' });
   };
 
@@ -1497,14 +1567,36 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
               </div>
 
               <div className="flex flex-col items-end gap-2">
-                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-[#FFD700] group-hover:text-black transition-all">
-                  <ChevronLeft size={16} className="rotate-180" />
-                </div>
-                {student.paymentStatus === 'pending' && (
-                  <div className="px-2 py-0.5 rounded-sm bg-[#E50000]/20 border border-[#E50000]/30">
-                    <span className="text-[6px] text-[#E50000] font-black uppercase tracking-tighter">Pendente</span>
+                <div className="flex items-center gap-2">
+                  {student.accessCode && (
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(`https://wa.me/?text=Ol%C3%A1%2C%20o%20token%20de%20acesso%20do%20seu%20filho%20no%20Real%20Casa%20%C3%A9%3A%20${student.accessCode}`, '_blank');
+                        toast.success('Link do WhatsApp aberto!');
+                      }}
+                      className="w-8 h-8 rounded-full bg-[#1db954]/10 flex items-center justify-center border border-[#1db954]/30 hover:bg-[#1db954] hover:text-black transition-all text-[#1db954]"
+                      title="Enviar Token via WhatsApp"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </button>
+                  )}
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-[#FFD700] group-hover:text-black transition-all">
+                    <ChevronLeft size={16} className="rotate-180" />
                   </div>
-                )}
+                </div>
+                <div className="flex gap-1">
+                  {student.accessCode && (
+                    <div className="px-2 py-0.5 rounded-sm bg-[#FFD700]/10 border border-[#FFD700]/20">
+                      <span className="text-[6px] text-[#FFD700] font-bold uppercase tracking-widest">{student.accessCode}</span>
+                    </div>
+                  )}
+                  {student.paymentStatus === 'pending' && (
+                    <div className="px-2 py-0.5 rounded-sm bg-[#E50000]/20 border border-[#E50000]/30">
+                      <span className="text-[6px] text-[#E50000] font-black uppercase tracking-tighter">Pendente</span>
+                    </div>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

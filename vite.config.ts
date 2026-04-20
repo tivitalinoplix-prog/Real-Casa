@@ -19,6 +19,9 @@ export default defineConfig(({mode}) => {
     server: {
       port: 3000,
     },
+    css: {
+      postcss: {}
+    },
     build: {
       target: 'es2022',
       rollupOptions: {
@@ -33,3 +36,4 @@ export default defineConfig(({mode}) => {
     }
   };
 });
+
