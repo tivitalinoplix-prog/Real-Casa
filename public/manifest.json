@@ -1,0 +1,17 @@
+{
+  "name": "Real Casa F.C.",
+  "short_name": "RealCasa",
+  "description": "Sistema de Gestão Esportiva R.C.F.C",
+  "theme_color": "#020204",
+  "background_color": "#020204",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ]
+}

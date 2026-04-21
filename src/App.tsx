@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState, useRef } from 'react';
+﻿import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Toaster, toast } from 'sonner';
 import confetti from 'canvas-confetti';
@@ -51,10 +51,10 @@ import { PlayIcon, PauseIcon } from './components/ui/Icons';
 
 // --- DATA MOCK FOR CHARTS ---
 const performanceData = [
-  { name: 'Sem 1', presença: 85, gols: 1.2 },
-  { name: 'Sem 2', presença: 88, gols: 1.5 },
-  { name: 'Sem 3', presença: 92, gols: 1.8 },
-  { name: 'Sem 4', presença: 90, gols: 1.6 },
+  { name: 'Sem 1', presenÃ§a: 85, gols: 1.2 },
+  { name: 'Sem 2', presenÃ§a: 88, gols: 1.5 },
+  { name: 'Sem 3', presenÃ§a: 92, gols: 1.8 },
+  { name: 'Sem 4', presenÃ§a: 90, gols: 1.6 },
 ];
 
 // --- HUD Confirmation Modal Component ---
@@ -67,7 +67,7 @@ function HudConfirmationModal({ isOpen, title, message, onConfirm, onCancel }) {
         initial={{ scale: 0.9, opacity: 0 }} 
         animate={{ scale: 1, opacity: 1 }} 
         exit={{ scale: 0.9, opacity: 0 }} 
-        className="bg-[#0D0D10] border border-[#FFD700]/30 rounded-3xl p-8 max-w-sm w-full relative z-[210] shadow-[0_0_50px_rgba(255,215,0,0.15)]"
+        className="bg-[#0D0D10] border border-[#FF6D00]/30 rounded-3xl p-8 max-w-sm w-full relative z-[210] shadow-[0_0_50px_rgba(255,215,0,0.15)]"
       >
         <div className="flex items-center gap-3 mb-6">
           <div className="w-10 h-10 rounded-xl bg-[#E50000]/20 border border-[#E50000]/30 flex items-center justify-center">
@@ -113,7 +113,7 @@ function TransactionDetailModal({ isOpen, transaction, onClose }) {
             <div className="flex justify-between items-start mb-8 relative z-10">
               <div>
                 <p className="text-[10px] font-inter font-black text-[#10b981] tracking-[0.3em] uppercase mb-1">Detalhes da Unidade</p>
-                <h2 className="text-3xl font-oswald font-bold text-white uppercase tracking-tight italic">Transação</h2>
+                <h2 className="text-3xl font-oswald font-bold text-white uppercase tracking-tight italic">TransaÃ§Ã£o</h2>
               </div>
               <button 
                 onClick={onClose} 
@@ -128,7 +128,7 @@ function TransactionDetailModal({ isOpen, transaction, onClose }) {
               <div className="bg-white/5 border border-white/5 rounded-3xl p-6 flex items-center justify-between">
                 <div className="flex flex-col">
                   <span className="text-[10px] font-inter text-white/30 uppercase tracking-widest font-black mb-1">Status Log</span>
-                  <span className="text-sm font-oswald font-bold text-[#10b981] tracking-widest uppercase italic">Liquidado • Verificado</span>
+                  <span className="text-sm font-oswald font-bold text-[#10b981] tracking-widest uppercase italic">Liquidado â€¢ Verificado</span>
                 </div>
                 <div className="w-12 h-12 rounded-2xl bg-[#10b981]/10 border border-[#10b981]/20 flex items-center justify-center">
                   <Shield className="text-[#10b981]" size={24} />
@@ -150,7 +150,7 @@ function TransactionDetailModal({ isOpen, transaction, onClose }) {
                   <p className="text-sm font-oswald font-bold text-white uppercase truncate">{transaction.date.split(',')[0]}</p>
                 </div>
                 <div className="bg-white/5 border border-white/5 p-4 rounded-2xl">
-                  <p className="text-[9px] font-inter text-white/30 uppercase font-black tracking-widest mb-1">Horário</p>
+                  <p className="text-[9px] font-inter text-white/30 uppercase font-black tracking-widest mb-1">HorÃ¡rio</p>
                   <p className="text-sm font-oswald font-bold text-white uppercase truncate">{transaction.date.split(',')[1] || '00:00'}</p>
                 </div>
               </div>
@@ -198,7 +198,7 @@ const itemVariantHorizontal = {
   show: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
 };
 
-// Transição Otimizada (Performance F1)
+// TransiÃ§Ã£o Otimizada (Performance F1)
 const pageTransitionVariants = {
   initial: { opacity: 0, scale: 0.97 },
   animate: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
@@ -256,19 +256,19 @@ const CATEGORIES = [
 ];
 
 const getBoyPhoto = (_id) => 'https://images.pexels.com/photos/33217156/pexels-photo-33217156.jpeg';
-const CREST_URL = 'https://i.postimg.cc/8kYGV4DF/Brasao.jpg';
+const CREST_URL = '/logo.png';
 
 const initialStudents = [
   {
-    id: 1, name: 'Lucas Silva', age: 12, category: 'sub13', guardian: 'Maria (Mãe)', phone: '11999999999',
+    id: 1, name: 'Lucas Silva', age: 12, category: 'sub13', guardian: 'Maria (MÃ£e)', phone: '11999999999',
     photo: getBoyPhoto(1), position: 'Atacante', goals: 12, assists: 4, attendance: 90, yellowCard: false, paymentStatus: 'pending', accessCode: 'RC-1111'
   },
   {
-    id: 2, name: 'Pedro Santos', age: 14, category: 'sub15', guardian: 'João (Pai)', phone: '11988888888',
+    id: 2, name: 'Pedro Santos', age: 14, category: 'sub15', guardian: 'JoÃ£o (Pai)', phone: '11988888888',
     photo: getBoyPhoto(2), position: 'Zagueiro', goals: 2, assists: 1, attendance: 85, yellowCard: true, paymentStatus: 'paid', accessCode: 'RC-2222'
   },
   {
-    id: 3, name: 'Mateus Oliveira', age: 10, category: 'sub11', guardian: 'Ana (Mãe)', phone: '11977777777',
+    id: 3, name: 'Mateus Oliveira', age: 10, category: 'sub11', guardian: 'Ana (MÃ£e)', phone: '11977777777',
     photo: getBoyPhoto(3), position: 'Meia', goals: 5, assists: 8, attendance: 95, yellowCard: false, paymentStatus: 'paid', accessCode: 'RC-3333'
   },
   {
@@ -282,8 +282,8 @@ const initialStudents = [
 ];
 
 const initialWaitlist = [
-  { id: 101, name: 'Rafael Souza', age: 11, guardian: 'Fernanda', phone: '11955555555', date: 'Há 2 dias' },
-  { id: 102, name: 'Thiago Lima', age: 14, guardian: 'Roberto', phone: '11944444444', date: 'Há 4 dias' },
+  { id: 101, name: 'Rafael Souza', age: 11, guardian: 'Fernanda', phone: '11955555555', date: 'HÃ¡ 2 dias' },
+  { id: 102, name: 'Thiago Lima', age: 14, guardian: 'Roberto', phone: '11944444444', date: 'HÃ¡ 4 dias' },
 ];
 
 // --- STYLES & THEMING ---
@@ -314,9 +314,9 @@ const ThemeStyles = () => (
       --brand-green: #00C853;
       --brand-red: #E50000;
       --brand-purple: #7e22ce;
-      --brand-gold: #FFD700;
+      --brand-gold: #FF6D00;
       --accent: #E50000;
-      --accent-gold: #FFD700;
+      --accent-gold: #FF6D00;
     }
     
     .font-oswald { font-family: 'Oswald', sans-serif; }
@@ -355,7 +355,7 @@ const ThemeStyles = () => (
 
     /* CSS Customizado Elite Performance (Perfil) */
     .dot-matrix-elite {
-        background-image: radial-gradient(#FFD700 0.5px, transparent 0.5px);
+        background-image: radial-gradient(#FF6D00 0.5px, transparent 0.5px);
         background-size: 20px 20px;
         opacity: 0.08;
     }
@@ -397,7 +397,7 @@ function NavItem({ icon: Icon, label, isActive, onClick }) {
   return (
     <button 
       onClick={onClick} 
-      className={`flex flex-col items-center justify-start pt-3 flex-1 h-full transition-all ${isActive ? 'text-[#ffd700] border-t-[3px] border-[#ffd700]' : 'text-white/40 hover:text-white/90 border-t-[3px] border-transparent'}`}
+      className={`flex flex-col items-center justify-start pt-3 flex-1 h-full transition-all ${isActive ? 'text-[#FF6D00] border-t-[3px] border-[#FF6D00]' : 'text-white/40 hover:text-white/90 border-t-[3px] border-transparent'}`}
       style={{ WebkitTapHighlightColor: 'transparent' }}
     >
       <Icon size={24} strokeWidth={isActive ? 2.5 : 1.5} className="mb-1.5" />
@@ -524,7 +524,7 @@ export default function App() {
         {/* Background Effects (Claudius Forms) */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#7a45f0]/10 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] bg-[#ffd700]/5 rounded-full blur-[100px] animate-[pulse_8s_infinite]" />
+          <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] bg-[#FF6D00]/5 rounded-full blur-[100px] animate-[pulse_8s_infinite]" />
         </div>
 
         {/* Noise Texture (Claudius Rock Feel) */}
@@ -536,7 +536,7 @@ export default function App() {
           
           <div className="absolute left-0 top-0 h-full w-12 md:w-20 flex items-center justify-center z-0 pointer-events-none">
             <h2 className="vertical-text font-massive text-6xl md:text-8xl tracking-[0.1em] text-white/5 uppercase select-none">
-              CENTRAL <span className="text-[var(--pit-secondary)]/10">TÁTICA</span>
+              CENTRAL <span className="text-[var(--pit-secondary)]/10">TÃTICA</span>
             </h2>
           </div>
           <div className="absolute right-0 top-1/4 h-1/2 w-1 bg-gradient-to-b from-transparent via-[var(--pit-secondary)]/20 to-transparent pointer-events-none z-0" />
@@ -551,7 +551,7 @@ export default function App() {
             <header className="w-full flex justify-end px-6 py-6 shrink-0">
               <div className="flex flex-col items-end gap-1 border-r-2 border-[var(--pit-secondary)] pr-4">
                 <span className="text-[10px] font-brand tracking-[0.4em] text-[var(--pit-secondary)]">SISTEMA_ONLINE_V.8.0</span>
-                <span className="text-[8px] font-brand tracking-[0.2em] text-white/40">MÓDULO_RC_TÁTICO</span>
+                <span className="text-[8px] font-brand tracking-[0.2em] text-white/40">MÃ“DULO_RC_TÃTICO</span>
               </div>
             </header>
 
@@ -622,7 +622,8 @@ export default function App() {
                         </motion.div>
                         <div className="text-left flex flex-col justify-center">
                           <h3 className="font-massive italic text-3xl text-white uppercase leading-none mt-1">GESTOR</h3>
-                          <p className="text-[9px] tracking-[0.2em] text-[var(--pit-primary)] font-bold whitespace-nowrap mt-1">LEITURA_TÉCNICA_V.04</p>
+                          <p className="text-[9px] tracking-[0.2em] text-[var(--pit-primary)] font-bold whitespace-nowrap mt-1 uppercase">LEITURA_TÃ‰CNICA_V.04</p>
+                          <p className="text-[8px] font-brand tracking-[0.1em] text-white/40 mt-1 uppercase">Beta: Senha 1234</p>
                         </div>
                       </div>
                       <div className="absolute top-0 right-0 w-10 h-10 bg-[var(--pit-primary)]/30 flex items-center justify-center group-hover:bg-[var(--pit-primary)] transition-colors pointer-events-none">
@@ -647,8 +648,9 @@ export default function App() {
                           <UserIcon size={22} className="text-[var(--pit-secondary)]" />
                         </motion.div>
                         <div className="text-left flex flex-col justify-center">
-                          <h3 className="font-massive italic text-3xl text-white uppercase leading-none mt-1">RESPONSÁVEL</h3>
-                          <p className="text-[9px] tracking-[0.2em] text-[var(--pit-secondary)] font-bold whitespace-nowrap mt-1">ACESSO_ATLETA_02</p>
+                          <h3 className="font-massive italic text-3xl text-white uppercase leading-none mt-1">RESPONSÃVEL</h3>
+                          <p className="text-[9px] tracking-[0.2em] text-[var(--pit-secondary)] font-bold whitespace-nowrap mt-1 uppercase">ACESSO_ATLETA_02</p>
+                          <p className="text-[8px] font-brand tracking-[0.1em] text-white/40 mt-1 uppercase">Beta: Ex: RC-1111</p>
                         </div>
                       </div>
                       <div className="absolute top-0 right-0 w-10 h-10 bg-[var(--pit-secondary)]/30 flex items-center justify-center group-hover:bg-[var(--pit-secondary)] transition-colors pointer-events-none">
@@ -680,7 +682,7 @@ export default function App() {
                 )}
 
                 {authFormActive === 'responsavel' && (
-                  <motion.form key="responsavel-form" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="slashed-module w-full relative bg-[#020204]/80 backdrop-blur-xl border border-[var(--pit-secondary)] p-6 z-20" onSubmit={(e) => { e.preventDefault(); const t = authInput.trim().toUpperCase(); const found = students.find(s => s.accessCode === t); if (found) { setSelectedStudentId(found.id); setRole('responsavel'); setAuthFormActive('none'); } else { toast.error('Token inválido ou não encontrado', { style: { background: '#E50000', color: '#fff', border: 'none' }}); setAuthInput(''); } }}>
+                  <motion.form key="responsavel-form" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="slashed-module w-full relative bg-[#020204]/80 backdrop-blur-xl border border-[var(--pit-secondary)] p-6 z-20" onSubmit={(e) => { e.preventDefault(); const t = authInput.trim().toUpperCase(); const found = students.find(s => s.accessCode === t); if (found) { setSelectedStudentId(found.id); setRole('responsavel'); setAuthFormActive('none'); } else { toast.error('Token invÃ¡lido ou nÃ£o encontrado', { style: { background: '#E50000', color: '#fff', border: 'none' }}); setAuthInput(''); } }}>
                     <button type="button" onClick={() => { setAuthFormActive('none'); setAuthInput(''); }} className="absolute top-4 right-4 text-white/40 hover:text-[var(--pit-secondary)] transition-colors">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                     </button>
@@ -710,7 +712,7 @@ export default function App() {
                     <motion.div animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 2, repeat: Infinity }} className="w-1.5 h-1.5 rounded-full bg-[var(--pit-primary)] shadow-[0_0_8px_var(--pit-primary)]" />
                     <span className="text-[9px] font-oswald tracking-[0.2em] text-white/70 uppercase">ACESSO GESTOR</span>
                   </div>
-                  <span className="text-[7px] font-brand tracking-widest text-[var(--pit-primary)] uppercase">ZONA_ROXA_TÁTICA</span>
+                  <span className="text-[7px] font-brand tracking-widest text-[var(--pit-primary)] uppercase">ZONA_ROXA_TÃTICA</span>
                 </div>
 
                 <div className="flex flex-col items-end gap-1">
@@ -808,36 +810,36 @@ export default function App() {
                 dashboard
               </span>
               <span className={`font-inter text-[8px] font-bold uppercase tracking-[0.1em] transition-colors ${gestorTab === 'home' ? 'text-[#00e5ff]' : 'text-white/40 group-hover:text-[#00e5ff]/70'}`}>
-                Início
+                InÃ­cio
               </span>
             </button>
 
             <button onClick={() => setGestorTab('alunos')} className="relative flex flex-col items-center justify-center flex-1 h-full group">
               {gestorTab === 'alunos' && (
-                <motion.div layoutId="navIndicatorGestor" transition={{ type: "spring", stiffness: 400, damping: 30 }} className="absolute top-[12px] w-8 h-[2px] bg-[#FFD700] shadow-[0_1px_5px_#FFD700]" />
+                <motion.div layoutId="navIndicatorGestor" transition={{ type: "spring", stiffness: 400, damping: 30 }} className="absolute top-[12px] w-8 h-[2px] bg-[#FF6D00] shadow-[0_1px_5px_#FF6D00]" />
               )}
               <span 
-                className={`material-symbols-outlined text-[24px] mb-1 transition-colors ${gestorTab === 'alunos' ? 'text-[#FFD700] drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]' : 'text-white/40 group-hover:text-[#FFD700]/70'}`} 
+                className={`material-symbols-outlined text-[24px] mb-1 transition-colors ${gestorTab === 'alunos' ? 'text-[#FF6D00] drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]' : 'text-white/40 group-hover:text-[#FF6D00]/70'}`} 
                 style={{ fontVariationSettings: gestorTab === 'alunos' ? '"FILL" 1' : '"FILL" 0' }}
               >
                 groups
               </span>
-              <span className={`font-inter text-[8px] font-bold uppercase tracking-[0.1em] transition-colors ${gestorTab === 'alunos' ? 'text-[#FFD700]' : 'text-white/40 group-hover:text-[#FFD700]/70'}`}>
+              <span className={`font-inter text-[8px] font-bold uppercase tracking-[0.1em] transition-colors ${gestorTab === 'alunos' ? 'text-[#FF6D00]' : 'text-white/40 group-hover:text-[#FF6D00]/70'}`}>
                 Alunos
               </span>
             </button>
 
             <button onClick={() => setGestorTab('chamada')} className="relative flex flex-col items-center justify-center flex-1 h-full group">
               {gestorTab === 'chamada' && (
-                <motion.div layoutId="navIndicatorGestor" transition={{ type: "spring", stiffness: 400, damping: 30 }} className="absolute top-[12px] w-8 h-[2px] bg-[#00C853] shadow-[0_1px_5px_#00C853]" />
+                <motion.div layoutId="navIndicatorGestor" transition={{ type: "spring", stiffness: 400, damping: 30 }} className="absolute top-[12px] w-8 h-[2px] bg-[#FF6D00] shadow-[0_1px_5px_#FF6D00]" />
               )}
               <span 
-                className={`material-symbols-outlined text-[24px] mb-1 transition-colors ${gestorTab === 'chamada' ? 'text-[#00C853] drop-shadow-[0_0_8px_rgba(0,200,83,0.5)]' : 'text-white/40 group-hover:text-[#00C853]/70'}`} 
+                className={`material-symbols-outlined text-[24px] mb-1 transition-colors ${gestorTab === 'chamada' ? 'text-[#FF6D00] drop-shadow-[0_0_8px_rgba(255,109,0,0.5)]' : 'text-white/40 group-hover:text-[#FF6D00]/70'}`} 
                 style={{ fontVariationSettings: gestorTab === 'chamada' ? '"FILL" 1' : '"FILL" 0' }}
               >
                 checklist
               </span>
-              <span className={`font-inter text-[8px] font-bold uppercase tracking-[0.1em] transition-colors ${gestorTab === 'chamada' ? 'text-[#00C853]' : 'text-white/40 group-hover:text-[#00C853]/70'}`}>
+              <span className={`font-inter text-[8px] font-bold uppercase tracking-[0.1em] transition-colors ${gestorTab === 'chamada' ? 'text-[#FF6D00]' : 'text-white/40 group-hover:text-[#FF6D00]/70'}`}>
                 Chamada
               </span>
             </button>
@@ -868,7 +870,7 @@ export default function App() {
                 payments
               </span>
               <span className={`font-inter text-[8px] font-bold uppercase tracking-[0.1em] transition-colors ${gestorTab === 'financeiro' ? 'text-[#00C853]' : 'text-white/40 group-hover:text-[#00C853]/70'}`}>
-                Finanças
+                FinanÃ§as
               </span>
             </button>
 
@@ -902,7 +904,7 @@ export default function App() {
                 className={`material-symbols-outlined text-[26px] mb-1 transition-colors ${responsavelTab === 'meuFilho' ? 'text-[#f59e0b] drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]' : 'text-white/40 group-hover:text-[#f59e0b]/70'}`} 
                 style={{ fontVariationSettings: responsavelTab === 'meuFilho' ? '"FILL" 1' : '"FILL" 0' }}
               >
-                target
+                sports_soccer
               </span>
               <span className={`font-inter text-[9px] font-bold uppercase tracking-[0.1em] transition-colors ${responsavelTab === 'meuFilho' ? 'text-[#f59e0b]' : 'text-white/40 group-hover:text-[#f59e0b]/70'}`}>
                 Atleta
@@ -920,7 +922,7 @@ export default function App() {
                 payments
               </span>
               <span className={`font-inter text-[9px] font-bold uppercase tracking-[0.1em] transition-colors ${responsavelTab === 'mensalidade' ? 'text-[#00C853]' : 'text-white/40 group-hover:text-[#00C853]/70'}`}>
-                Finanças
+                FinanÃ§as
               </span>
             </button>
 
@@ -984,11 +986,11 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
       if (navigator.share) {
         await navigator.share({
           title: `Perfil do Atleta: ${student.name}`,
-          text: `Acompanhe o desempenho de ${student.name} na divisão ${categoryInfo.label}.`,
+          text: `Acompanhe o desempenho de ${student.name} na divisÃ£o ${categoryInfo.label}.`,
           url: window.location.href,
         });
       } else {
-        toast.error('Compartilhamento não suportado neste navegador.');
+        toast.error('Compartilhamento nÃ£o suportado neste navegador.');
       }
     } catch (error) {
       console.log('Error sharing', error);
@@ -1003,7 +1005,7 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
       const reader = new FileReader();
       reader.onloadend = () => {
         setStudent({ ...student, photo: reader.result });
-        toast.success('Sincronização biométrica de foto de perfil atualizada!');
+        toast.success('SincronizaÃ§Ã£o biomÃ©trica de foto de perfil atualizada!');
       };
       reader.readAsDataURL(file);
     }
@@ -1017,7 +1019,7 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
 
   const handleAbsence = () => {
     toast.promise(new Promise(resolve => setTimeout(resolve, 2000)), {
-      loading: 'Enviando aviso de ausência para a comissão...',
+      loading: 'Enviando aviso de ausÃªncia para a comissÃ£o...',
       success: 'Falta justificada com sucesso. O treinador foi notificado.',
       error: 'Erro ao enviar aviso.'
     });
@@ -1031,7 +1033,7 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
         <div className="absolute inset-0 dot-matrix-elite opacity-5" />
       </div>
 
-      {/* CABEÇALHO PADRÃO GLOBAL */}
+      {/* CABEÃ‡ALHO PADRÃƒO GLOBAL */}
       <StandardHeader 
         title="MEU" 
         coloredPart="ATLETA" 
@@ -1044,12 +1046,12 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
                 <ChevronLeft size={18} className="text-white" />
               </button>
             )}
-            {/* Avatar Clicável com Feedback Visual */}
+            {/* Avatar ClicÃ¡vel com Feedback Visual */}
             <button 
               onClick={() => setIsSettingsOpen(true)}
               className="relative w-12 h-12 rounded-full bg-black/40 backdrop-blur-sm transition-all hover:scale-105 active:scale-95 group cursor-pointer"
             >
-              {/* Anel Pulsante Subtil para Indicar Clicável */}
+              {/* Anel Pulsante Subtil para Indicar ClicÃ¡vel */}
               <div className="absolute inset-0 rounded-full border border-[#f59e0b]/50 animate-[ping_3s_ease-out_infinite] opacity-30 group-hover:opacity-100" />
               <div className="absolute inset-0 rounded-full border-2 border-[#f59e0b] shadow-[0_0_15px_rgba(245,158,11,0.4)] group-hover:shadow-[0_0_25px_rgba(245,158,11,0.8)] transition-shadow" />
               <div className="w-full h-full rounded-full overflow-hidden relative z-10 p-[2px]">
@@ -1069,10 +1071,10 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
           src={student.photo} 
         />
         
-        {/* 2. MÁSCARA HUD VIGNETTE (INTEGRAÇÃO COM FUNDO ESCURO) */}
+        {/* 2. MÃSCARA HUD VIGNETTE (INTEGRAÃ‡ÃƒO COM FUNDO ESCURO) */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#020204] via-[#020204]/40 to-transparent z-10" />
 
-        {/* INFO ANCORADA NO HERO (Canto inferior esquerdo - Pílula e Nome) */}
+        {/* INFO ANCORADA NO HERO (Canto inferior esquerdo - PÃ­lula e Nome) */}
         <div className="absolute bottom-12 left-0 w-full px-10 z-30 flex flex-col items-start gap-4">
           <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
             <span className="px-3 py-1 bg-[#f59e0b]/20 border border-[#f59e0b]/40 rounded-md font-inter text-[9px] font-black tracking-[0.3em] text-[#f59e0b] uppercase backdrop-blur-md shadow-lg">
@@ -1091,7 +1093,7 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
       </section>
 
       <div className="px-6 relative z-20 space-y-6 max-w-5xl mx-auto w-full pt-6 pb-10">
-        {/* EVOLUÇÃO GERAL */}
+        {/* EVOLUÃ‡ÃƒO GERAL */}
         <motion.div initial={{ y: 40, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: false, amount: 0.2 }} className="glass-panel-elite p-8 relative overflow-hidden rounded-[32px] shadow-[0_30px_60px_rgba(0,0,0,0.8)] border-t border-t-white/10 transition-transform hover:scale-[1.01]">
           <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#7a45f0]/10 blur-3xl rounded-full pointer-events-none" />
           
@@ -1102,8 +1104,8 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
                 <span className="font-inter text-[11px] tracking-[0.4em] font-black text-white/70 uppercase">DESEMPENHO</span>
               </div>
               <h2 className="font-massive text-6xl tracking-tight uppercase italic flex flex-col items-center justify-center -space-y-1">
-                <span className="text-white relative z-10 leading-[0.85]">EVOLUÇÃO</span>
-                <span className="text-[#f59e0b] relative z-20 leading-[0.85]">INCRÍVEL</span>
+                <span className="text-white relative z-10 leading-[0.85]">EVOLUÃ‡ÃƒO</span>
+                <span className="text-[#f59e0b] relative z-20 leading-[0.85]">INCRÃVEL</span>
               </h2>
             </div>
             
@@ -1132,29 +1134,29 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
               
               <div className="absolute bottom-full left-5 mb-2 w-max max-w-[120px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50 pointer-events-none">
                 <div className="bg-[#14141c]/95 backdrop-blur-md border border-white/5 rounded-lg p-2 shadow-xl">
-                  <p className="text-[8px] font-inter text-white/70 leading-tight">Média de velocidade atingida nos últimos treinos</p>
+                  <p className="text-[8px] font-inter text-white/70 leading-tight">MÃ©dia de velocidade atingida nos Ãºltimos treinos</p>
                 </div>
               </div>
             </div>
             
             <div className="flex flex-col border-l border-white/10 pl-5 relative group cursor-help">
-              <span className="font-inter text-[9px] font-bold text-white/30 tracking-[0.3em] uppercase mb-1.5">SAÚDE</span>
+              <span className="font-inter text-[9px] font-bold text-white/30 tracking-[0.3em] uppercase mb-1.5">SAÃšDE</span>
               <p className="font-oswald text-[22px] text-[#f59e0b] font-bold tracking-wider uppercase leading-none mt-1">FORTE</p>
               
               <div className="absolute bottom-full left-5 mb-2 w-max max-w-[120px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50 pointer-events-none">
                 <div className="bg-[#14141c]/95 backdrop-blur-md border border-white/5 rounded-lg p-2 shadow-xl">
-                  <p className="text-[8px] font-inter text-white/70 leading-tight">Condição física avaliada via biometria e relato</p>
+                  <p className="text-[8px] font-inter text-white/70 leading-tight">CondiÃ§Ã£o fÃ­sica avaliada via biometria e relato</p>
                 </div>
               </div>
             </div>
             
             <div className="flex flex-col border-l border-white/10 pl-5 relative group cursor-help">
-              <span className="font-inter text-[9px] font-bold text-white/30 tracking-[0.3em] uppercase mb-1.5">CANSAÇO</span>
+              <span className="font-inter text-[9px] font-bold text-white/30 tracking-[0.3em] uppercase mb-1.5">CANSAÃ‡O</span>
               <p className="font-oswald text-[22px] text-white/60 font-bold tracking-wider uppercase leading-none mt-1 underline decoration-[#f59e0b]/50 underline-offset-4">BAIXO</p>
               
               <div className="absolute bottom-full left-5 mb-2 w-max max-w-[120px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50 pointer-events-none">
                 <div className="bg-[#14141c]/95 backdrop-blur-md border border-white/5 rounded-lg p-2 shadow-xl">
-                  <p className="text-[8px] font-inter text-white/70 leading-tight">Nível de fadiga muscular reportado no pós-jogo</p>
+                  <p className="text-[8px] font-inter text-white/70 leading-tight">NÃ­vel de fadiga muscular reportado no pÃ³s-jogo</p>
                 </div>
               </div>
             </div>
@@ -1164,11 +1166,11 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
         {/* DONUT CHARTS (1 Coluna fiel ao Mobile da Imagem) */}
         <div className="grid grid-cols-1 gap-5 pt-4">
           <DonutCard value={student.goals} max={20} label="GOLS" sub="BRILHANDO" colorHex="#f59e0b" shadowClass="donut-shadow-elite" tooltip="Total de gols marcados nesta temporada (Meta: 20)" />
-          <DonutCard value={student.assists} max={15} label="ASSIST." sub="EQUIPE" colorHex="#a064ff" shadowClass="donut-shadow-violet-elite" tooltip="Passes decisivos que resultaram em gols (Visão de Jogo)" />
-          <DonutCard value={Math.floor(student.attendance / 10)} max={10} label="JOGOS" sub="PRESENÇA" colorHex="#f59e0b" shadowClass="donut-shadow-elite" tooltip="Número de partidas oficiais disputadas no mês" />
+          <DonutCard value={student.assists} max={15} label="ASSIST." sub="EQUIPE" colorHex="#a064ff" shadowClass="donut-shadow-violet-elite" tooltip="Passes decisivos que resultaram em gols (VisÃ£o de Jogo)" />
+          <DonutCard value={Math.floor(student.attendance / 10)} max={10} label="JOGOS" sub="PRESENÃ‡A" colorHex="#f59e0b" shadowClass="donut-shadow-elite" tooltip="NÃºmero de partidas oficiais disputadas no mÃªs" />
         </div>
 
-        {/* AÇÕES */}
+        {/* AÃ‡Ã•ES */}
         {isParentView && (
           <motion.a 
             whileHover={{ scale: 1.02 }}
@@ -1181,12 +1183,12 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="text-[#f59e0b]">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
             </svg>
-            <span className="drop-shadow-sm">CONTATAR COMISSÃO</span>
+            <span className="drop-shadow-sm">CONTATAR COMISSÃƒO</span>
           </motion.a>
         )}
       </div>
 
-      {/* MODAL CONFIGURAÇÕES / COMPARTILHAR DO ATLETA (PORTAL PARA POSIÇOAMENTO FIXO CORRETO) */}
+      {/* MODAL CONFIGURAÃ‡Ã•ES / COMPARTILHAR DO ATLETA (PORTAL PARA POSIÃ‡OAMENTO FIXO CORRETO) */}
       {createPortal(
         <AnimatePresence>
           {isSettingsOpen && (
@@ -1211,7 +1213,7 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
                     </div>
                     <div>
                       <h3 className="font-oswald text-xl text-white font-bold leading-none uppercase">{firstName}</h3>
-                      <p className="font-inter text-[10px] text-white/50 tracking-[0.2em] uppercase mt-1">Opções do Perfil</p>
+                      <p className="font-inter text-[10px] text-white/50 tracking-[0.2em] uppercase mt-1">OpÃ§Ãµes do Perfil</p>
                     </div>
                   </div>
                   <button 
@@ -1245,7 +1247,7 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
                         </select>
                       </div>
                       <div>
-                        <label className="text-[9px] font-inter text-white/40 font-bold uppercase tracking-[0.2em]">Endereço Completo</label>
+                        <label className="text-[9px] font-inter text-white/40 font-bold uppercase tracking-[0.2em]">EndereÃ§o Completo</label>
                         <input 
                           type="text" 
                           value={editForm.address} 
@@ -1260,7 +1262,7 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
                     </motion.div>
                   ) : (
                     <>
-                      {/* Botão de Compartilhar Estilo Premium WhatsApp */}
+                      {/* BotÃ£o de Compartilhar Estilo Premium WhatsApp */}
                       <motion.button 
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
@@ -1312,7 +1314,7 @@ function AthleteResponsavel({ student: initialStudent, allStudents = [], onSelec
                         className="w-full py-6 rounded-[28px] bg-white/5 border border-white/5 flex items-center justify-center gap-4 group mt-4 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(245,158,11,0.15)] hover:border-[#f59e0b]/20 transition-all active:scale-95"
                       >
                         <AlertTriangle size={20} className="text-[#f59e0b]" />
-                        <span className="font-oswald text-[11px] font-bold tracking-[0.2em] text-[#f59e0b] uppercase">Avisar Ausência no Treino</span>
+                        <span className="font-oswald text-[11px] font-bold tracking-[0.2em] text-[#f59e0b] uppercase">Avisar AusÃªncia no Treino</span>
                       </motion.button>
                     </>
                   )}
@@ -1335,7 +1337,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
   const [selectedPos, setSelectedPos] = useState('Todos');
   const [selectedPay, setSelectedPay] = useState('Todos');
   const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState({ name: '', age: '', category: 'sub11', guardian: '', phone: '', position: 'Não definido', photo: '' });
+  const [formData, setFormData] = useState({ name: '', age: '', category: 'sub11', guardian: '', phone: '', position: 'NÃ£o definido', photo: '' });
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -1349,9 +1351,9 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
   const handleRegister = (e) => {
     e.preventDefault();
     const phoneDigits = normalizePhoneBR(formData.phone);
-    if (phoneDigits.length < 10) return toast.error('Telefone inválido');
+    if (phoneDigits.length < 10) return toast.error('Telefone invÃ¡lido');
     
-    // Gerador de Token no Padrão RC-XXXX
+    // Gerador de Token no PadrÃ£o RC-XXXX
     const generatedToken = `RC-${Math.floor(1000 + Math.random() * 9000)}`;
 
     setStudents([...students, { 
@@ -1373,7 +1375,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
 
     setShowForm(false);
     toast.success('Atleta cadastrado com sucesso!', { description: `Token de acesso: ${generatedToken}` });
-    setFormData({ name: '', age: '', category: 'sub11', guardian: '', phone: '', position: 'Não definido', photo: '' });
+    setFormData({ name: '', age: '', category: 'sub11', guardian: '', phone: '', position: 'NÃ£o definido', photo: '' });
   };
 
   const positions = ['Todos', 'Goleiro', 'Zagueiro', 'Lateral', 'Meia', 'Atacante'];
@@ -1381,7 +1383,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
     { id: 'Todos', label: 'Todos' },
     { id: 'paid', label: 'Pago' },
     { id: 'pending', label: 'Pendente' },
-    { id: 'review', label: 'Em Análise' }
+    { id: 'review', label: 'Em AnÃ¡lise' }
   ];
 
   const filtered = students.filter((s) => 
@@ -1402,19 +1404,19 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
       {!isFocusMode && (
         <StandardHeader 
           title="ELENCO" 
-          coloredPart="TÁTICO" 
+          coloredPart="TÃTICO" 
           subtitle="RECRUTAMENTO & ELENCO" 
-          accentColor="#FFD700" 
+          accentColor="#FF6D00" 
           rightElement={
             <div className="flex items-center gap-2">
               <button 
                 onClick={() => {
                   toast.success('BAIXANDO BANCO DE DADOS', { 
                     description: 'Roster exportado em formato CSV.',
-                    style: { background: '#020204', color: '#FFD700', border: '1px solid #FFD70040' }
+                    style: { background: '#020204', color: '#FF6D00', border: '1px solid #FF6D0040' }
                   });
                 }}
-                className="w-10 h-14 bg-white/5 backdrop-blur-xl rounded-l-xl rounded-r-sm flex items-center justify-center text-[#FFD700] shadow-inner active:scale-90 transition-transform hover:bg-[#FFD700]/10 border border-[#FFD700]/20"
+                className="w-10 h-14 bg-white/5 backdrop-blur-xl rounded-l-xl rounded-r-sm flex items-center justify-center text-[#FF6D00] shadow-inner active:scale-90 transition-transform hover:bg-[#FF6D00]/10 border border-[#FF6D00]/20"
                 style={{ clipPath: 'polygon(0% 0%, 100% 0%, 85% 100%, 0% 100%)' }}
                 title="Exportar CSV"
               >
@@ -1422,7 +1424,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
               </button>
               <button 
                 onClick={() => setShowForm(true)}
-                className="w-14 h-14 bg-[#FFD700] rounded-r-xl rounded-l-sm flex items-center justify-center text-black shadow-[0_0_20px_rgba(255,215,0,0.3)] active:scale-90 transition-transform hover:brightness-110"
+                className="w-14 h-14 bg-[#FF6D00] rounded-r-xl rounded-l-sm flex items-center justify-center text-black shadow-[0_0_20px_rgba(255,215,0,0.3)] active:scale-90 transition-transform hover:brightness-110"
                 style={{ clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
               >
                 <Plus size={24} />
@@ -1436,18 +1438,18 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
         {/* Search Input HUD */}
         <div className="relative group">
           <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-            <Search className="text-[#FFD700]/50 group-focus-within:text-[#FFD700] transition-colors" size={18} />
+            <Search className="text-[#FF6D00]/50 group-focus-within:text-[#FF6D00] transition-colors" size={18} />
           </div>
           <input 
             type="text" 
             placeholder="PROCURAR ATLETA..." 
             value={search} 
             onChange={(e) => setSearch(e.target.value)} 
-            className="w-full bg-[#14141c]/60 backdrop-blur-xl border border-white/5 text-white font-oswald text-xs tracking-widest rounded-r-3xl rounded-l-md py-5 pl-12 pr-4 focus:outline-none focus:border-[#FFD700]/40 transition-all placeholder:text-white/20 uppercase" 
+            className="w-full bg-[#14141c]/60 backdrop-blur-xl border border-white/5 text-white font-oswald text-xs tracking-widest rounded-r-3xl rounded-l-md py-5 pl-12 pr-4 focus:outline-none focus:border-[#FF6D00]/40 transition-all placeholder:text-white/20 uppercase" 
           />
           <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-1">
-            <div className="w-1 h-3 bg-[#FFD700]/20 rounded-full" />
-            <div className="w-1 h-3 bg-[#FFD700]/40 rounded-full" />
+            <div className="w-1 h-3 bg-[#FF6D00]/20 rounded-full" />
+            <div className="w-1 h-3 bg-[#FF6D00]/40 rounded-full" />
           </div>
         </div>
 
@@ -1456,7 +1458,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
           <div className="space-y-4 bg-white/5 p-4 rounded-2xl border border-white/5 backdrop-blur-md">
             {/* Category HUD Filters */}
             <div className="space-y-2">
-              <span className="text-[7px] font-black text-[#FFD700] uppercase tracking-[0.2em] ml-1 opacity-60">Filtrar Categoria</span>
+              <span className="text-[7px] font-black text-[#FF6D00] uppercase tracking-[0.2em] ml-1 opacity-60">Filtrar Categoria</span>
               <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
                 {['Todos', ...CATEGORIES.map((c) => c.id)].map((cat) => {
                   const isActive = selectedCat === cat;
@@ -1467,7 +1469,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                       onClick={() => setSelectedCat(cat)} 
                       className={`px-4 py-1.5 rounded-sm font-headline text-[9px] tracking-widest uppercase transition-all border whitespace-nowrap
                         ${isActive 
-                          ? 'bg-[#FFD700] text-black border-[#FFD700] shadow-[0_0_10px_rgba(255,215,0,0.3)]' 
+                          ? 'bg-[#FF6D00] text-black border-[#FF6D00] shadow-[0_0_10px_rgba(255,215,0,0.3)]' 
                           : 'bg-[#14141c]/40 text-white/40 border-white/5'}`}
                       style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
                     >
@@ -1480,7 +1482,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
 
             {/* Position HUD Filters */}
             <div className="space-y-2">
-              <span className="text-[7px] font-black text-[#FFD700] uppercase tracking-[0.2em] ml-1 opacity-60">Filtrar Posição</span>
+              <span className="text-[7px] font-black text-[#FF6D00] uppercase tracking-[0.2em] ml-1 opacity-60">Filtrar PosiÃ§Ã£o</span>
               <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
                 {positions.map((pos) => {
                   const isActive = selectedPos === pos;
@@ -1503,7 +1505,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
 
             {/* Payment HUD Filters */}
             <div className="space-y-2">
-              <span className="text-[7px] font-black text-[#FFD700] uppercase tracking-[0.2em] ml-1 opacity-60">Status Pagamento</span>
+              <span className="text-[7px] font-black text-[#FF6D00] uppercase tracking-[0.2em] ml-1 opacity-60">Status Pagamento</span>
               <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
                 {payStatus.map((status) => {
                   const isActive = selectedPay === status.id;
@@ -1533,20 +1535,20 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
               variants={itemVariant} 
               key={student.id} 
               onClick={() => onOpenProfile(student.id)} 
-              className="group bg-[#14141c]/40 backdrop-blur-2xl rounded-2xl border border-white/5 p-4 flex items-center gap-4 cursor-pointer hover:bg-[#14141c]/60 hover:border-[#FFD700]/20 transition-all relative overflow-hidden shadow-xl card-holo-glow"
+              className="group bg-[#14141c]/40 backdrop-blur-2xl rounded-2xl border border-white/5 p-4 flex items-center gap-4 cursor-pointer hover:bg-[#14141c]/60 hover:border-[#FF6D00]/20 transition-all relative overflow-hidden shadow-xl card-holo-glow"
               style={{ '--card-glow': 'rgba(255,215,0,0.1)' } as any}
             >
               {/* Card Decoration */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#FFD700]/5 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#FF6D00]/5 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
               <div className="relative">
                 <img 
                   src={student.photo} 
                   alt={student.name} 
-                  className="w-16 h-16 rounded-xl object-cover border border-white/10 group-hover:border-[#FFD700]/40 transition-colors" 
+                  className="w-16 h-16 rounded-xl object-cover border border-white/10 group-hover:border-[#FF6D00]/40 transition-colors" 
                 />
-                <div className="absolute -bottom-1 -right-1 bg-black/80 border border-white/20 px-1.5 py-0.5 rounded text-[7px] font-bold text-[#FFD700] tracking-tighter">
+                <div className="absolute -bottom-1 -right-1 bg-black/80 border border-white/20 px-1.5 py-0.5 rounded text-[7px] font-bold text-[#FF6D00] tracking-tighter">
                   ID.{student.id.toString().slice(-4)}
                 </div>
               </div>
@@ -1556,7 +1558,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                   {student.name.split(' ')[0]} <span className="text-white/40">{student.name.split(' ').slice(1).join(' ')}</span>
                 </h4>
                 <div className="flex items-center gap-2">
-                  <span className="font-inter text-[8px] text-[#FFD700] font-black uppercase tracking-[0.2em]">
+                  <span className="font-inter text-[8px] text-[#FF6D00] font-black uppercase tracking-[0.2em]">
                     {student.category.replace('sub', 'SUB-')}
                   </span>
                   <div className="w-1 h-1 rounded-full bg-white/20" />
@@ -1581,14 +1583,14 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     </button>
                   )}
-                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-[#FFD700] group-hover:text-black transition-all">
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-[#FF6D00] group-hover:text-black transition-all">
                     <ChevronLeft size={16} className="rotate-180" />
                   </div>
                 </div>
                 <div className="flex gap-1">
                   {student.accessCode && (
-                    <div className="px-2 py-0.5 rounded-sm bg-[#FFD700]/10 border border-[#FFD700]/20">
-                      <span className="text-[6px] text-[#FFD700] font-bold uppercase tracking-widest">{student.accessCode}</span>
+                    <div className="px-2 py-0.5 rounded-sm bg-[#FF6D00]/10 border border-[#FF6D00]/20">
+                      <span className="text-[6px] text-[#FF6D00] font-bold uppercase tracking-widest">{student.accessCode}</span>
                     </div>
                   )}
                   {student.paymentStatus === 'pending' && (
@@ -1606,7 +1608,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
               <Search size={32} className="text-white/10" />
               <div>
                 <p className="font-oswald text-white/60 text-sm uppercase tracking-widest">Nenhum registro encontrado</p>
-                <p className="font-inter text-[9px] text-white/20 uppercase mt-1">Verifique os filtros ou ID da missão</p>
+                <p className="font-inter text-[9px] text-white/20 uppercase mt-1">Verifique os filtros ou ID da missÃ£o</p>
               </div>
             </motion.div>
           )}
@@ -1622,12 +1624,12 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 30 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="bg-[#0D0D10] w-full max-w-sm mx-auto rounded-[40px] p-8 relative z-[110] border border-[#FFD700]/30 shadow-[0_30px_70px_rgba(0,0,0,1)] max-h-[85vh] overflow-y-auto no-scrollbar"
+              className="bg-[#0D0D10] w-full max-w-sm mx-auto rounded-[40px] p-8 relative z-[110] border border-[#FF6D00]/30 shadow-[0_30px_70px_rgba(0,0,0,1)] max-h-[85vh] overflow-y-auto no-scrollbar"
             >
               <div className="flex justify-between items-center mb-8">
                 <div className="flex flex-col">
-                  <span className="font-inter text-[8px] text-[#FFD700] tracking-[0.4em] font-bold uppercase mb-1">REGISTRO DE ASPIRANTE</span>
-                  <h3 className="font-massive italic text-3xl text-white tracking-widest uppercase leading-none">NOVO <span className="text-[#FFD700]">TALENTO</span></h3>
+                  <span className="font-inter text-[8px] text-[#FF6D00] tracking-[0.4em] font-bold uppercase mb-1">REGISTRO DE ASPIRANTE</span>
+                  <h3 className="font-massive italic text-3xl text-white tracking-widest uppercase leading-none">NOVO <span className="text-[#FF6D00]">TALENTO</span></h3>
                 </div>
                 <button 
                   onClick={() => setShowForm(false)} 
@@ -1642,12 +1644,12 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                 <div className="flex justify-center mb-8">
                   <label className="relative cursor-pointer group">
                     <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} />
-                    <div className="w-32 h-32 rounded-3xl bg-[#14141c] border-2 border-dashed border-white/10 flex items-center justify-center overflow-hidden relative group-hover:border-[#FFD700]/50 transition-all">
+                    <div className="w-32 h-32 rounded-3xl bg-[#14141c] border-2 border-dashed border-white/10 flex items-center justify-center overflow-hidden relative group-hover:border-[#FF6D00]/50 transition-all">
                       {formData.photo ? (
                         <img src={formData.photo} className="w-full h-full object-cover" alt="Preview" />
                       ) : (
                         <div className="flex flex-col items-center gap-2">
-                          <Camera size={32} className="text-white/20 group-hover:text-[#FFD700] transition-colors" />
+                          <Camera size={32} className="text-white/20 group-hover:text-[#FF6D00] transition-colors" />
                           <span className="text-[7px] text-white/20 font-black uppercase tracking-widest">SUBIR ARQUIVO</span>
                         </div>
                       )}
@@ -1657,14 +1659,14 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
 
                 <div className="space-y-4">
                   <div className="space-y-1">
-                    <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">Identificação</label>
-                    <input required type="text" placeholder="NOME COMPLETO" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FFD700]/40 placeholder:text-white/10" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+                    <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">IdentificaÃ§Ã£o</label>
+                    <input required type="text" placeholder="NOME COMPLETO" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FF6D00]/40 placeholder:text-white/10" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
                   </div>
 
                   <div className="flex gap-4">
                     <div className="flex-1 space-y-1">
                       <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">Cronologia</label>
-                      <input required type="number" placeholder="IDADE" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FFD700]/40 placeholder:text-white/10" value={formData.age} onChange={(e) => setFormData({ ...formData, age: e.target.value, category: suggestCategoryByAge(Number(e.target.value)) })} />
+                      <input required type="number" placeholder="IDADE" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FF6D00]/40 placeholder:text-white/10" value={formData.age} onChange={(e) => setFormData({ ...formData, age: e.target.value, category: suggestCategoryByAge(Number(e.target.value)) })} />
                     </div>
                     <div className="flex-1 space-y-1">
                       <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">Segmento</label>
@@ -1675,18 +1677,30 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">Especialidade Clínica</label>
-                    <input required type="text" placeholder="POSIÇÃO EM CAMPO" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FFD700]/40 placeholder:text-white/10" value={formData.position} onChange={(e) => setFormData({ ...formData, position: e.target.value })} />
+                    <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">PosiÃ§Ã£o</label>
+                    <select 
+                      required 
+                      className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none appearance-none cursor-pointer focus:border-[#FF6D00]/40" 
+                      value={formData.position} 
+                      onChange={(e) => setFormData({ ...formData, position: e.target.value })}
+                    >
+                      <option value="NÃ£o definido" disabled>SELECIONE A POSIÃ‡ÃƒO</option>
+                      <option value="Goleiro" className="bg-[#14141c]">GOLEIRO</option>
+                      <option value="Zagueiro" className="bg-[#14141c]">ZAGUEIRO</option>
+                      <option value="Lateral" className="bg-[#14141c]">LATERAL</option>
+                      <option value="Meia" className="bg-[#14141c]">MEIA</option>
+                      <option value="Atacante" className="bg-[#14141c]">ATACANTE</option>
+                    </select>
                   </div>
 
                   <div className="pt-4 space-y-4">
                     <div className="space-y-1">
                       <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">Tutor Legal</label>
-                      <input required type="text" placeholder="NOME DO RESPONSÁVEL" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FFD700]/40 placeholder:text-white/10" value={formData.guardian} onChange={(e) => setFormData({ ...formData, guardian: e.target.value })} />
+                      <input required type="text" placeholder="NOME DO RESPONSÃVEL" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FF6D00]/40 placeholder:text-white/10" value={formData.guardian} onChange={(e) => setFormData({ ...formData, guardian: e.target.value })} />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">Comunicação WhatsApp</label>
-                      <input required type="tel" placeholder="(00) 0 0000-0000" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FFD700]/40 placeholder:text-white/10" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+                      <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">ComunicaÃ§Ã£o WhatsApp</label>
+                      <input required type="tel" placeholder="(00) 0 0000-0000" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FF6D00]/40 placeholder:text-white/10" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
                     </div>
                   </div>
                 </div>
@@ -1694,11 +1708,11 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                   <div className="pt-6">
                     <button 
                       type="submit" 
-                      className="w-full bg-[#FFD700] text-black font-oswald text-xl py-5 rounded-2xl flex items-center justify-center gap-3 tracking-[0.4em] uppercase shadow-[0_0_40px_rgba(255,215,0,0.3)] hover:brightness-110 active:scale-95 transition-all"
+                      className="w-full bg-[#FF6D00] text-black font-oswald text-xl py-5 rounded-2xl flex items-center justify-center gap-3 tracking-[0.4em] uppercase shadow-[0_0_40px_rgba(255,215,0,0.3)] hover:brightness-110 active:scale-95 transition-all"
                     >
                       <Save size={20} /> FINALIZAR CADASTRO
                     </button>
-                    <p className="text-center mt-6 text-[7px] text-white/20 font-black uppercase tracking-[0.5em]">SISTEMA DE GESTÃO - BASE ELITE</p>
+                    <p className="text-center mt-6 text-[7px] text-white/20 font-black uppercase tracking-[0.5em]">SISTEMA DE GESTÃƒO - BASE ELITE</p>
                   </div>
               </form>
             </motion.div>
@@ -1735,8 +1749,8 @@ function AttendanceView({ students }) {
       <StandardHeader 
         title="PLANO" 
         coloredPart="DE CHAMADA" 
-        subtitle="CONTROLE TÁTICO DE PRESENÇA" 
-        accentColor="#00e5ff" 
+        subtitle="CONTROLE TÃTICO DE PRESENÃ‡A" 
+        accentColor="#FF6D00" 
       />
 
       <div className="px-6 space-y-8 relative z-10 flex-1">
@@ -1750,14 +1764,14 @@ function AttendanceView({ students }) {
               <span className="text-white/20 font-inter text-xs mb-1 font-bold">/ {globalTotal}</span>
             </div>
             <div className="h-1 w-full bg-white/5 rounded-full mt-2 overflow-hidden">
-               <motion.div initial={{ width: 0 }} animate={{ width: `${globalPercent}%` }} className="h-full bg-[#00e5ff]" />
+               <motion.div initial={{ width: 0 }} animate={{ width: `${globalPercent}%` }} className="h-full bg-[#FF6D00]" />
             </div>
           </div>
-          <div className="bg-[#14141c]/60 backdrop-blur-xl border-l border-white/5 p-5 flex flex-col gap-1 rounded-2xl card-holo-glow" style={{ '--card-glow': 'rgba(0,229,255,0.1)' } as any}>
-             <span className="text-[7px] font-black text-white/20 uppercase tracking-[0.3em]">Eficiência Global</span>
-             <span className="font-massive text-3xl text-[#00e5ff] italic">{globalPercent}%</span>
+          <div className="bg-[#14141c]/60 backdrop-blur-xl border-l border-white/5 p-5 flex flex-col gap-1 rounded-2xl card-holo-glow" style={{ '--card-glow': 'rgba(255,109,0,0.1)' } as any}>
+             <span className="text-[7px] font-black text-white/20 uppercase tracking-[0.3em]">EficiÃªncia Global</span>
+             <span className="font-massive text-3xl text-[#FF6D00] italic">{globalPercent}%</span>
              <span className="text-[7px] font-inter text-white/40 font-bold uppercase tracking-widest mt-2 flex items-center gap-1">
-               <div className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse" /> Sincronizado
+               <div className="w-1.5 h-1.5 rounded-full bg-[#FF6D00] animate-pulse" /> Sincronizado
              </span>
           </div>
         </div>
@@ -1766,39 +1780,50 @@ function AttendanceView({ students }) {
         <div className="space-y-4">
           <div className="relative group">
             <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-              <Search className="text-[#00e5ff]/50 group-focus-within:text-[#00e5ff] transition-colors" size={18} />
+              <Search className="text-[#FF6D00]/50 group-focus-within:text-[#FF6D00] transition-colors" size={18} />
             </div>
             <input 
               type="text" 
               placeholder="PESQUISAR ATLETA..." 
               value={search} 
               onChange={(e) => setSearch(e.target.value)} 
-              className="w-full bg-[#14141c]/60 backdrop-blur-xl border border-white/5 text-white font-oswald text-xs tracking-widest rounded-r-3xl rounded-l-md py-5 pl-12 pr-4 focus:outline-none focus:border-[#00e5ff]/40 transition-all placeholder:text-white/20 uppercase" 
+              className="w-full bg-[#14141c]/60 backdrop-blur-xl border border-white/5 text-white font-oswald text-xs tracking-widest rounded-r-3xl rounded-l-md py-5 pl-12 pr-4 focus:outline-none focus:border-[#FF6D00]/40 transition-all placeholder:text-white/20 uppercase" 
             />
           </div>
 
           <div className="flex items-center gap-3 overflow-x-auto no-scrollbar pb-1">
             <button 
               onClick={() => setSelectedCat('all')} 
-              className={`px-6 py-3 rounded-xl font-inter font-black text-[9px] tracking-[0.15em] uppercase transition-all shrink-0 border ${
+              className={`flex items-center px-6 py-3 rounded-xl font-inter font-black text-[9px] tracking-[0.15em] uppercase transition-all shrink-0 border relative overflow-hidden ${
                 selectedCat === 'all' 
-                ? 'bg-[#00e5ff] text-black border-[#00e5ff] shadow-[0_0_15px_rgba(0,229,255,0.4)]' 
-                : 'bg-[#14141c]/60 text-white/40 border-white/5'
+                ? 'bg-[#FF6D00] text-black border-[#FF6D00] shadow-[0_0_20px_rgba(255,109,0,0.4)]' 
+                : 'bg-[#14141c]/60 text-[#FF6D00]/60 border-[#FF6D00]/20'
               }`}
             >
-              TODOS OS ESCALÕES
+              <div 
+                className={`absolute left-0 top-1/4 bottom-1/4 w-[3.5px] rounded-full transition-all ${
+                  selectedCat === 'all' ? 'bg-black/40' : 'bg-[#FF6D00] shadow-[0_0_8px_rgba(255,109,0,0.6)]'
+                }`} 
+              />
+              <span className="ml-2">TODOS OS ESCALÃ•ES</span>
             </button>
             {CATEGORIES.map((cat) => (
               <button 
                 key={cat.id} 
                 onClick={() => setSelectedCat(cat.id)} 
-                className={`px-5 py-3 rounded-xl font-inter font-black text-[9px] tracking-[0.15em] uppercase transition-all shrink-0 border ${
+                className={`flex items-center px-5 py-3 rounded-xl font-inter font-black text-[9px] tracking-[0.15em] uppercase transition-all shrink-0 border relative overflow-hidden ${
                   selectedCat === cat.id 
-                  ? 'bg-white text-black border-white' 
-                  : 'bg-[#14141c]/60 text-white/40 border-white/5'
+                  ? 'bg-[#FF6D00] text-black border-[#FF6D00] shadow-[0_0_20px_rgba(255,109,0,0.4)]' 
+                  : 'bg-[#14141c]/60 text-[#FF6D00]/60 border-[#FF6D00]/20 hover:border-[#FF6D00]/40'
                 }`}
               >
-                {cat.label}
+                {/* HUD Reference Accent Bar */}
+                <div 
+                  className={`absolute left-0 top-1/4 bottom-1/4 w-[3.5px] rounded-full transition-all ${
+                    selectedCat === cat.id ? 'bg-black/40' : 'bg-[#FF6D00] shadow-[0_0_8px_rgba(255,109,0,0.6)]'
+                  }`} 
+                />
+                <span className="ml-2">{cat.label}</span>
               </button>
             ))}
           </div>
@@ -1818,21 +1843,28 @@ function AttendanceView({ students }) {
               return (
                 <motion.div 
                   variants={itemVariant} 
+                  whileHover={{ scale: 1.01, x: 5 }}
                   key={student.id} 
-                  className={`relative bg-[#14141c]/40 backdrop-blur-md rounded-2xl border transition-all duration-300 card-holo-glow ${
-                    status === true ? 'border-[#00C853]/40' : 
-                    status === false ? 'border-[#E50000]/40' : 
-                    'border-white/5'
+                  className={`relative bg-[#14141c]/40 backdrop-blur-md rounded-2xl border transition-all duration-300 card-holo-glow shadow-[0_5px_15px_rgba(0,0,0,0.2)] ${
+                    status === true ? 'border-[#FF6D00]/60 ring-1 ring-[#FF6D00]/20' : 
+                    status === false ? 'border-[#E50000]/60 ring-1 ring-[#E50000]/20' : 
+                    'border-white/5 hover:border-[#FF6D00]/30'
                   }`}
-                  style={{ '--card-glow': status === true ? 'rgba(0, 200, 83, 0.15)' : status === false ? 'rgba(229, 0, 0, 0.15)' : 'rgba(255, 255, 255, 0.05)' } as any}
+                  style={{ 
+                    '--card-glow': status === true ? 'rgba(255, 109, 0, 0.25)' : status === false ? 'rgba(229, 0, 0, 0.25)' : 'rgba(255, 109, 0, 0.05)' 
+                  } as any}
                 >
                   <div className="p-4 flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <img src={student.photo} alt={student.name} className={`w-14 h-14 rounded-xl object-cover border transition-all duration-500 ${status === true ? 'border-[#00C853]' : 'border-white/10'}`} />
+                      <img src={student.photo} alt={student.name} className={`w-14 h-14 rounded-xl object-cover border transition-all duration-500 ${status === true ? 'border-[#FF6D00]' : 'border-white/10'}`} />
                       <div>
                         <h4 className="font-oswald font-bold text-white text-base tracking-wide uppercase leading-none">{student.name.split(' ').slice(0, 2).join(' ')}</h4>
                         <div className="flex items-center gap-2 mt-2">
-                           <span className="px-1.5 py-0.5 rounded bg-white/5 text-[7px] font-black text-white/30 uppercase border border-white/5 tracking-tighter">{student.category.replace('sub', 'U-')}</span>
+                           <span 
+                             className="px-2 py-0.5 rounded-full text-[7px] font-black uppercase border border-[#FF6D00]/30 bg-[#FF6D00]/10 text-[#FF6D00] tracking-tighter"
+                           >
+                             {student.category.replace('sub', 'U-')}
+                           </span>
                            <span className="text-[9px] font-inter font-black text-white/30 uppercase tracking-widest">{student.position}</span>
                         </div>
                       </div>
@@ -1843,11 +1875,11 @@ function AttendanceView({ students }) {
                         onClick={() => setAttendance((prev) => ({ ...prev, [student.id]: true }))} 
                         className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all ${
                           status === true 
-                          ? 'bg-[#00C853] text-black shadow-[0_0_15px_rgba(0,200,83,0.3)]' 
+                          ? 'bg-[#FF6D00] text-white shadow-[0_0_15px_rgba(255,109,0,0.3)]' 
                           : 'bg-white/5 text-white/20 border border-white/5'
                         }`}
                       >
-                        <Check size={20} strokeWidth={3} />
+                        <Check size={20} className={status === true ? "text-black" : ""} strokeWidth={3} />
                       </button>
                       <button 
                         onClick={() => setAttendance((prev) => ({ ...prev, [student.id]: false }))} 
@@ -1871,17 +1903,17 @@ function AttendanceView({ students }) {
         <div className="fixed bottom-32 left-1/2 -translate-x-1/2 w-full max-w-sm px-6 z-20">
           <button 
             onClick={() => toast.success('OPERACIONAL ATUALIZADO', { 
-              description: 'Relatório compilado e sincronizado com a Central.',
-              style: { background: '#020204', color: '#00e5ff', border: '1px solid #00e5ff40' }
+              description: 'RelatÃ³rio compilado e sincronizado com a Central.',
+              style: { background: '#0D0D10', color: '#FF6D00', border: '1px solid #FF6D0040' }
             })} 
-            className="w-full relative h-16 rounded-2xl overflow-hidden transition-all active:scale-95 shadow-[0_15px_30px_-10px_rgba(0,229,255,0.4)]"
+            className="w-full relative h-16 rounded-2xl overflow-hidden transition-all active:scale-95 shadow-[0_15px_40px_-10px_rgba(255,109,0,0.5)] group"
           >
-            <div className="absolute inset-0 bg-[#00e5ff]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FF6D00] to-[#FFAB00] group-hover:brightness-110 transition-all" />
             <div className="relative h-full flex items-center justify-center gap-3">
-              <span className="font-brand tracking-[0.4em] text-black text-[10px] uppercase ml-1">Salvar Relatório</span>
+              <span className="font-brand tracking-[0.4em] text-black text-[10px] uppercase font-bold ml-1">Salvar RelatÃ³rio</span>
             </div>
-            <div className="absolute left-2 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-black/20" />
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-black/20" />
+            <div className="absolute left-2 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-black/10" />
+            <div className="absolute right-2 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-black/10" />
           </button>
         </div>
       </div>
@@ -1905,23 +1937,23 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
   const generateAI = async (student, e) => {
     e.stopPropagation();
     if (!process.env.GEMINI_API_KEY) {
-      toast.error("Chave da API Gemini não configurada.");
+      toast.error("Chave da API Gemini nÃ£o configurada.");
       return;
     }
     setAiLoadingId(student.id);
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-      const prompt = `Atue como auxiliar técnico de futebol base. Analise: ${student.name} (${student.position}). Scout hoje: Gols: ${student.goals||0}, Ast: ${student.assists||0}, Desarmes: ${student.tackles||0}, Cartões: ${student.yellowCards||0}A/${student.redCards||0}V. Escreva 1 parágrafo curto (max 3 frases) com leitura tática reta e direta do rendimento dele no jogo, elogiando ou cobrando algo pontual.`;
+      const prompt = `Atue como auxiliar tÃ©cnico de futebol base. Analise: ${student.name} (${student.position}). Scout hoje: Gols: ${student.goals||0}, Ast: ${student.assists||0}, Desarmes: ${student.tackles||0}, CartÃµes: ${student.yellowCards||0}A/${student.redCards||0}V. Escreva 1 parÃ¡grafo curto (max 3 frases) com leitura tÃ¡tica reta e direta do rendimento dele no jogo, elogiando ou cobrando algo pontual.`;
       const response = await ai.models.generateContent({
         model: 'gemini-3.1-pro-preview',
         contents: prompt,
         config: { thinkingConfig: { thinkingLevel: 'HIGH' } as any }
       });
       setAiFeedback(prev => ({ ...prev, [student.id]: response.text }));
-      toast.success("Análise tática concluída.");
+      toast.success("AnÃ¡lise tÃ¡tica concluÃ­da.");
     } catch (err) {
       console.error(err);
-      toast.error("Erro ao gerar análise: IA Indisponível.");
+      toast.error("Erro ao gerar anÃ¡lise: IA IndisponÃ­vel.");
     } finally {
       setAiLoadingId(null);
     }
@@ -1932,8 +1964,8 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
   const handleCriticalStat = (id, type) => {
     onConfirmAction({
       isOpen: true,
-      title: 'CARTÃO VERMELHO',
-      message: 'Confirmar expulsão e registro disciplinar?',
+      title: 'CARTÃƒO VERMELHO',
+      message: 'Confirmar expulsÃ£o e registro disciplinar?',
       onConfirm: () => {
         updateStat(id, type, 1);
       }
@@ -1945,15 +1977,15 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
     if (amt > 0) {
       const labels = {
         goals: 'Gol',
-        assists: 'Assistência',
-        yellowCards: 'Cartão Amarelo',
-        redCards: 'Cartão Vermelho',
+        assists: 'AssistÃªncia',
+        yellowCards: 'CartÃ£o Amarelo',
+        redCards: 'CartÃ£o Vermelho',
         tackles: 'Desarme'
       };
       toast.success(`${labels[type]} registrado!`, { 
         style: { background: '#020204', color: '#ff4d4d', border: '1px solid #ff4d4d40' }
       });
-      if (type === 'goals') confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#FFD700', '#ff4d4d', '#00ec5e'] });
+      if (type === 'goals') confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#FF6D00', '#ff4d4d', '#00ec5e'] });
     }
   };
 
@@ -1963,8 +1995,8 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
     { subject: 'Gols', A: student.goals || 0, fullMark: 5 },
     { subject: 'Assis.', A: student.assists || 0, fullMark: 5 },
     { subject: 'Desarmes', A: student.tackles || 2, fullMark: 10 },
-    { subject: 'Físico', A: 7, fullMark: 10 },
-    { subject: 'Tático', A: 8, fullMark: 10 },
+    { subject: 'FÃ­sico', A: 7, fullMark: 10 },
+    { subject: 'TÃ¡tico', A: 8, fullMark: 10 },
   ];
 
   return (
@@ -1972,7 +2004,7 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
       <StandardHeader 
         title="CENTRAL" 
         coloredPart="SCOUT"
-        subtitle="RADAR DE PERFORMANCE TÁTICA" 
+        subtitle="RADAR DE PERFORMANCE TÃTICA" 
         accentColor="#ff4d4d" 
       />
       
@@ -2003,7 +2035,7 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
              <button 
                 onClick={() => {
                   toast.success('DADOS EXPORTADOS', { 
-                    description: 'Métricas de Scout geradas em CSV.',
+                    description: 'MÃ©tricas de Scout geradas em CSV.',
                     style: { background: '#020204', color: '#ff4d4d', border: '1px solid #ff4d4d40' }
                   });
                 }}
@@ -2042,7 +2074,7 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
                   </div>
                   <div className="flex gap-5">
                     <div className="flex flex-col items-center">
-                      <span className="text-[7px] font-black text-[#FFD700] uppercase tracking-widest leading-none mb-1 drop-shadow-md">Gols</span>
+                      <span className="text-[7px] font-black text-[#FF6D00] uppercase tracking-widest leading-none mb-1 drop-shadow-md">Gols</span>
                       <span className="font-massive italic text-2xl text-white">{student.goals || 0}</span>
                     </div>
                     <div className="flex flex-col items-center">
@@ -2061,11 +2093,11 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
                   {isExpanded && (
                     <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}>
                       <div className="p-6 pt-2 space-y-6 relative z-10" onClick={(e) => e.stopPropagation()}>
-                        {/* AÇÕES RÁPIDAS HUD */}
+                        {/* AÃ‡Ã•ES RÃPIDAS HUD */}
                         <div className="grid grid-cols-2 gap-4 border-t border-[#ff4d4d]/20 pt-6">
-                           <button onClick={(e) => { e.stopPropagation(); updateStat(student.id, 'goals', 1); }} className="bg-gradient-to-b from-[#FFD700]/10 to-[#FFD700]/5 border border-[#FFD700]/30 py-6 px-4 rounded-2xl flex flex-col items-center gap-2 hover:from-[#FFD700]/20 hover:to-[#FFD700]/10 transition-all shadow-[0_4px_20px_-10px_rgba(255,215,0,0.3)] active:scale-95 group">
-                              <span className="material-symbols-outlined text-[28px] text-[#FFD700] group-hover:scale-110 transition-transform">sports_soccer</span>
-                              <span className="text-[10px] font-black text-[#FFD700] uppercase tracking-[0.2em]">Gol</span>
+                           <button onClick={(e) => { e.stopPropagation(); updateStat(student.id, 'goals', 1); }} className="bg-gradient-to-b from-[#FF6D00]/10 to-[#FF6D00]/5 border border-[#FF6D00]/30 py-6 px-4 rounded-2xl flex flex-col items-center gap-2 hover:from-[#FF6D00]/20 hover:to-[#FF6D00]/10 transition-all shadow-[0_4px_20px_-10px_rgba(255,215,0,0.3)] active:scale-95 group">
+                              <span className="material-symbols-outlined text-[28px] text-[#FF6D00] group-hover:scale-110 transition-transform">sports_soccer</span>
+                              <span className="text-[10px] font-black text-[#FF6D00] uppercase tracking-[0.2em]">Gol</span>
                            </button>
                            <button onClick={(e) => { e.stopPropagation(); updateStat(student.id, 'tackles', 1); }} className="bg-gradient-to-b from-[#00ec5e]/10 to-[#00ec5e]/5 border border-[#00ec5e]/30 py-6 px-4 rounded-2xl flex flex-col items-center gap-2 hover:from-[#00ec5e]/20 hover:to-[#00ec5e]/10 transition-all shadow-[0_4px_20px_-10px_rgba(0,236,94,0.3)] active:scale-95 group">
                               <span className="material-symbols-outlined text-[28px] text-[#00ec5e] group-hover:scale-110 transition-transform">security</span>
@@ -2086,7 +2118,7 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
                            <button onClick={(e) => generateAI(student, e)} disabled={aiLoadingId === student.id} className="w-full bg-gradient-to-r from-[#00ddea]/10 via-transparent to-transparent border border-[#00ddea]/30 py-4 px-4 rounded-xl flex items-center justify-between hover:bg-[#00ddea]/20 transition-all shadow-[0_0_15px_rgba(0,221,234,0.15)] active:scale-[0.98]">
                               <div className="flex items-center gap-3">
                                  <span className={`material-symbols-outlined text-[#00ddea] ${aiLoadingId === student.id ? 'animate-spin' : ''}`}>network_intelligence</span>
-                                 <span className="text-[10px] font-black text-[#00ddea] uppercase tracking-[0.2em]">Consultar IA Tática</span>
+                                 <span className="text-[10px] font-black text-[#00ddea] uppercase tracking-[0.2em]">Consultar IA TÃ¡tica</span>
                               </div>
                               <ChevronRight size={16} className="text-[#00ddea]/50" />
                            </button>
@@ -2153,7 +2185,7 @@ function FinanceView({ students, setStudents, onConfirmAction }) {
     onConfirmAction({
       isOpen: true,
       title: 'Validar Pagamento',
-      message: 'Confirmar liquidação deste rendimento?',
+      message: 'Confirmar liquidaÃ§Ã£o deste rendimento?',
       onConfirm: () => {
         setStudents(students.map((s) => s.id === id ? { ...s, paymentStatus: 'paid' } : s));
         toast.success('Rendimento validado!', { style: { background: '#020204', color: '#10b981', border: '1px solid #10b98140' } });
@@ -2227,14 +2259,14 @@ function FinanceView({ students, setStudents, onConfirmAction }) {
         <div className="px-6 mt-10 mb-2">
           <div className="flex items-center gap-3">
              <div className="w-1 h-5 bg-[#10b981] shadow-[0_0_10px_#10b981]" />
-             <h3 className="font-oswald text-xs font-bold text-white tracking-[0.3em] uppercase italic">Distribuição de Capital</h3>
+             <h3 className="font-oswald text-xs font-bold text-white tracking-[0.3em] uppercase italic">DistribuiÃ§Ã£o de Capital</h3>
           </div>
         </div>
 
         {/* Consolidated Financial Carousel - Unique Metrics only */}
         <section className="flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-8 no-scrollbar w-full">
           
-          {/* Card 1: Performance do Mês */}
+          {/* Card 1: Performance do MÃªs */}
           <div className="snap-center shrink-0 w-[85vw] max-w-[340px]">
             <div className="bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-2xl border border-[#10b981]/20 rounded-3xl p-8 flex flex-col h-[280px] shadow-2xl relative overflow-hidden transition-all hover:border-[#10b981]/40">
               <div className="flex justify-between items-start mb-6">
@@ -2250,7 +2282,7 @@ function FinanceView({ students, setStudents, onConfirmAction }) {
               <div className="flex-grow flex flex-col justify-end">
                 <div className="flex items-baseline gap-2 mb-4">
                   <span className="text-sm font-oswald text-white/40 uppercase">META: </span>
-                  <span className="text-2xl font-massive text-white italic">R$ {expectedRevenue}<span className="text-[#10b981]/40 text-sm"> / MÊS</span></span>
+                  <span className="text-2xl font-massive text-white italic">R$ {expectedRevenue}<span className="text-[#10b981]/40 text-sm"> / MÃŠS</span></span>
                 </div>
                 <div className="h-1 w-full bg-white/5 rounded-full">
                   <div className="h-full bg-[#10b981] rounded-full shadow-[0_0_10px_#10b981]" style={{ width: `${progressPercent}%` }} />
@@ -2265,7 +2297,7 @@ function FinanceView({ students, setStudents, onConfirmAction }) {
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <span className="text-[9px] font-inter text-[#10b981] uppercase tracking-[0.2em] font-black mb-1 block">ALERTAS HUD</span>
-                  <p className="font-oswald text-xl font-bold text-white tracking-widest leading-none">PENDÊNCIAS</p>
+                  <p className="font-oswald text-xl font-bold text-white tracking-widest leading-none">PENDÃŠNCIAS</p>
                 </div>
                 <div className="bg-[#10b981]/10 p-2.5 rounded-xl border border-[#10b981]/20 text-[#10b981]">
                   <span className="material-symbols-outlined">feedback</span>
@@ -2286,7 +2318,7 @@ function FinanceView({ students, setStudents, onConfirmAction }) {
 
         </section>
 
-        {/* Progress Tracker Block - Syncing with "EVOLUÇÃO INCRÍVEL" pattern */}
+        {/* Progress Tracker Block - Syncing with "EVOLUÃ‡ÃƒO INCRÃVEL" pattern */}
         <div className="px-6 mb-10">
           <motion.div 
             initial={{ y: 30, opacity: 0 }} 
@@ -2329,7 +2361,7 @@ function FinanceView({ students, setStudents, onConfirmAction }) {
                     <p className="font-oswald text-xl text-white font-bold tracking-widest italic">R$ {totalRevenue}</p>
                  </div>
                  <div className="text-right">
-                    <p className="text-[9px] font-inter text-white/30 uppercase tracking-widest mb-1">PROJEÇÃO</p>
+                    <p className="text-[9px] font-inter text-white/30 uppercase tracking-widest mb-1">PROJEÃ‡ÃƒO</p>
                     <p className="font-oswald text-xl text-white/60 font-bold tracking-widest italic">R$ {expectedRevenue}</p>
                  </div>
               </div>
@@ -2352,7 +2384,7 @@ function FinanceView({ students, setStudents, onConfirmAction }) {
             <button 
               onClick={() => {
                 toast.success('DADOS EXPORTADOS', { 
-                  description: 'Relatório financeiro gerado em CSV.',
+                  description: 'RelatÃ³rio financeiro gerado em CSV.',
                   style: { background: '#020204', color: '#10b981', border: '1px solid #10b98140' }
                 });
               }}
@@ -2367,7 +2399,7 @@ function FinanceView({ students, setStudents, onConfirmAction }) {
           <div className="grid grid-cols-3 gap-3">
             {[
               { id: 'paid', label: 'Pagos', icon: 'check_circle' },
-              { id: 'review', label: 'Análise', icon: 'verified' },
+              { id: 'review', label: 'AnÃ¡lise', icon: 'verified' },
               { id: 'pending', label: 'Pendentes', icon: 'error' }
             ].map((filter) => {
               const isActive = activeFilters.includes(filter.id);
@@ -2482,7 +2514,7 @@ function FinanceView({ students, setStudents, onConfirmAction }) {
                            className="mt-4 pt-4 border-t border-white/5"
                          >
                             <div className="flex items-center justify-between mb-3 px-1">
-                              <span className="text-[9px] font-inter font-black text-white/40 uppercase tracking-widest">Histórico Completo</span>
+                              <span className="text-[9px] font-inter font-black text-white/40 uppercase tracking-widest">HistÃ³rico Completo</span>
                               <span className="text-[8px] font-inter font-bold text-white/30 uppercase tracking-widest">2026</span>
                             </div>
                             <div className="space-y-1.5 flex flex-col items-stretch">
@@ -2498,7 +2530,7 @@ function FinanceView({ students, setStudents, onConfirmAction }) {
                                    </div>
                                    <div className="text-right">
                                       <div className="text-[10px] font-oswald font-black text-white/70 tracking-widest">R$ 40</div>
-                                      <div className="text-[7px] font-inter font-bold text-white/20 uppercase mt-0.5">{h.date} • PIX</div>
+                                      <div className="text-[7px] font-inter font-bold text-white/20 uppercase mt-0.5">{h.date} â€¢ PIX</div>
                                    </div>
                                 </div>
                               ))}
@@ -2518,7 +2550,7 @@ function FinanceView({ students, setStudents, onConfirmAction }) {
           )}
         </div>
 
-        {/* HISTÓRICO DE FLUXO GLOBAL (Extrato de Telemetria Horizontal Carousel) */}
+        {/* HISTÃ“RICO DE FLUXO GLOBAL (Extrato de Telemetria Horizontal Carousel) */}
         <div className="mt-8 pb-12 overflow-hidden">
           <div className="px-6 flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
@@ -2599,18 +2631,18 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="flex flex-col flex-1 pb-[120px] relative text-white bg-[#020204] overflow-x-hidden min-h-screen font-inter"
     >
-      {/* Malha Télemétrica Dourada Sutil */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-screen" style={{ backgroundImage: 'linear-gradient(#FFD700 1px, transparent 1px), linear-gradient(90deg, #FFD700 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
+      {/* Malha TÃ©lemÃ©trica Dourada Sutil */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-screen" style={{ backgroundImage: 'linear-gradient(#FF6D00 1px, transparent 1px), linear-gradient(90deg, #FF6D00 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
       <div className="absolute top-0 w-full h-[500px] bg-gradient-to-b from-[#00e5ff]/5 to-transparent pointer-events-none mix-blend-overlay" />
       
       {/* HUD Scanline Effect for immersion */}
       <div className="hud-scanline opacity-20" />
       
-      <StandardHeader title="MISSÃO" coloredPart="CONTROLE" subtitle="STATUS DO SISTEMA: IDEAL" accentColor="#00e5ff" icon="sports_esports" />
+      <StandardHeader title="MISSÃƒO" coloredPart="CONTROLE" subtitle="STATUS DO SISTEMA: IDEAL" accentColor="#00e5ff" icon="sports_esports" />
 
       <div className="px-6 space-y-6 mt-4 relative z-10">
       
-          {/* SAÚDE GLOBAL (Global Health) with loading effect */}
+          {/* SAÃšDE GLOBAL (Global Health) with loading effect */}
           <motion.div 
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -2619,7 +2651,7 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
             className="bg-[#14141c]/60 backdrop-blur-xl border border-white/5 rounded-[32px] p-8 relative overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.5)]"
           >
               <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
-              <h3 className="text-[10px] text-center font-black tracking-[0.3em] uppercase text-white/50 mb-6">Saúde Sincronizada</h3>
+              <h3 className="text-[10px] text-center font-black tracking-[0.3em] uppercase text-white/50 mb-6">SaÃºde Sincronizada</h3>
               
                {/* Radial representation */}
                <div className="flex justify-center items-center relative h-36">
@@ -2656,7 +2688,7 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
                          transition={{ duration: 0.5, delay: 1.8 }}
                          className="text-[8px] font-black tracking-widest text-[#00e5ff] uppercase mt-2 animate-pulse"
                        >
-                         Sistema Estável
+                         Sistema EstÃ¡vel
                        </motion.span>
                    </div>
                </div>
@@ -2681,13 +2713,13 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
                    <span className="text-[8px] font-bold tracking-[0.2em] text-white/50 uppercase">Atletas Ativos</span>
                 </div>
                 <p className="text-4xl font-massive italic text-white mb-2 leading-none">142</p>
-                <p className="text-[8px] text-[#00e5ff] tracking-widest font-black uppercase">↑ +5 vs Sem Passada</p>
+                <p className="text-[8px] text-[#00e5ff] tracking-widest font-black uppercase">â†‘ +5 vs Sem Passada</p>
              </div>
 
              <div className="flex-1 bg-gradient-to-br from-[#14141c]/80 to-[#0A0A0C]/80 backdrop-blur-xl border border-white/5 rounded-[24px] p-5 relative shadow-lg">
                 <div className="flex items-center gap-2 mb-3">
                    <div className="w-1.5 h-4 bg-white/10 rounded-full" />
-                   <span className="text-[8px] font-bold tracking-[0.2em] text-white/50 uppercase">Carga Média</span>
+                   <span className="text-[8px] font-bold tracking-[0.2em] text-white/50 uppercase">Carga MÃ©dia</span>
                 </div>
                 <p className="text-4xl font-massive italic text-white mb-2 leading-none">6.8</p>
                 <p className="text-[8px] text-[#f59e0b] tracking-widest font-black uppercase flex items-center gap-1"><span className="material-symbols-outlined text-[10px]">warning</span> Elevada</p>
@@ -2708,8 +2740,8 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
               <div className="relative z-10 flex items-center gap-5">
                   <div className="relative">
                       {/* Using the reference photo for Lucas Silva */}
-                      <img src="https://images.unsplash.com/photo-1431324155629-1a6eda1eed2d?q=80&w=200&auto=format&fit=crop" className="w-[68px] h-[68px] rounded-2xl object-cover border border-[#00e5ff]/30 shadow-[0_0_20px_rgba(0,229,255,0.15)] grayscale-[30%] brightness-110 contrast-110" alt="MVP Lucas Silva" />
-                      <div className="absolute -bottom-2 -right-2 bg-[#00e5ff] text-[#020204] text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-widest">NÍVEL 1</div>
+                      <img src={getBoyPhoto('lucas_silva')} onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=200&auto=format&fit=crop'; }} className="w-[68px] h-[68px] rounded-2xl object-cover border border-[#00e5ff]/30 shadow-[0_0_20px_rgba(0,229,255,0.15)] grayscale-[30%] brightness-110 contrast-110" alt="MVP Lucas Silva" />
+                      <div className="absolute -bottom-2 -right-2 bg-[#00e5ff] text-[#020204] text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-widest">NÃVEL 1</div>
                   </div>
                   <div className="flex-1">
                       <span className="text-[7.5px] text-[#00e5ff] uppercase tracking-[0.2em] font-black block mb-1">DESTAQUE DA SEMANA</span>
@@ -2718,7 +2750,7 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
                   </div>
                   <div className="bg-[#020204]/80 border border-[#00e5ff]/30 p-3 rounded-2xl flex flex-col items-center shadow-inner">
                       <span className="font-oswald text-xl text-[#00e5ff] font-bold leading-none animate-pulse">98.4</span>
-                      <span className="text-[6px] font-black tracking-widest uppercase text-white/40 mt-1">AVALIAÇÃO</span>
+                      <span className="text-[6px] font-black tracking-widest uppercase text-white/40 mt-1">AVALIAÃ‡ÃƒO</span>
                   </div>
               </div>
           </motion.div>
@@ -2747,9 +2779,9 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
                     <ResponsiveContainer width="100%" height="100%">
                       <RadarChart cx="50%" cy="50%" outerRadius="65%" data={[
                           { subject: 'RITMO', A: 120, fullMark: 150 },
-                          { subject: 'FÔLEGO', A: 98, fullMark: 150 },
-                          { subject: 'FORÇA', A: 86, fullMark: 150 },
-                          { subject: 'QI TÁTICO', A: 110, fullMark: 150 },
+                          { subject: 'FÃ”LEGO', A: 98, fullMark: 150 },
+                          { subject: 'FORÃ‡A', A: 86, fullMark: 150 },
+                          { subject: 'QI TÃTICO', A: 110, fullMark: 150 },
                           { subject: 'DEFESA', A: 85, fullMark: 150 },
                       ]}>
                         <PolarGrid stroke="rgba(255,255,255,0.05)" />
@@ -2771,17 +2803,17 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
                        <span className="font-oswald text-white text-xl">1.2s</span>
                    </div>
                    <div className="text-center border-x border-white/5">
-                       <span className="text-[8px] font-black text-white/30 tracking-[0.2em] uppercase block mb-1">FÔLEGO</span>
+                       <span className="text-[8px] font-black text-white/30 tracking-[0.2em] uppercase block mb-1">FÃ”LEGO</span>
                        <span className="font-oswald text-[#00e5ff] text-xl drop-shadow-[0_0_8px_rgba(0,229,255,0.5)]">88%</span>
                    </div>
                    <div className="text-center">
-                       <span className="text-[8px] font-black text-white/30 tracking-[0.2em] uppercase block mb-1">FORÇA</span>
+                       <span className="text-[8px] font-black text-white/30 tracking-[0.2em] uppercase block mb-1">FORÃ‡A</span>
                        <span className="font-oswald text-white text-xl">3.4k</span>
                    </div>
                </div>
           </motion.div>
 
-          {/* ACESSO RÁPIDO */}
+          {/* ACESSO RÃPIDO */}
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -2789,10 +2821,10 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
             className="grid grid-cols-4 gap-3 py-2"
           >
                {[
-                 { i: 'groups', l: 'ATLETAS', hc: 'group-hover:text-[#FFD700]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]', onClick: () => setGestorTab('alunos') },
-                 { i: 'checklist', l: 'CHAMADA', hc: 'group-hover:text-[#00C853]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(0,200,83,0.6)]', onClick: () => setGestorTab('chamada') },
+                 { i: 'groups', l: 'ATLETAS', hc: 'group-hover:text-[#FF6D00]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]', onClick: () => setGestorTab('alunos') },
+                 { i: 'checklist', l: 'CHAMADA', hc: 'group-hover:text-[#FF6D00]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(255,109,0,0.6)]', onClick: () => setGestorTab('chamada') },
                  { i: 'monitoring', l: 'SCOUT', hc: 'group-hover:text-[#E50000]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(229,0,0,0.6)]', onClick: () => setGestorTab('scout') },
-                 { i: 'payments', l: 'FINANÇAS', hc: 'group-hover:text-[#00C853]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(0,200,83,0.6)]', onClick: () => setGestorTab('financeiro') }
+                 { i: 'payments', l: 'FINANÃ‡AS', hc: 'group-hover:text-[#00C853]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(0,200,83,0.6)]', onClick: () => setGestorTab('financeiro') }
                ].map((btn, idx) => (
                    <button key={idx} onClick={btn.onClick} className="bg-gradient-to-b from-[#14141c]/80 to-[#0A0A0C]/90 backdrop-blur-md border border-white/5 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 hover:border-white/20 transition-all active:scale-95 group shadow-lg">
                        <span className={`material-symbols-outlined text-[26px] text-white/30 transition-all ${btn.hc} ${btn.hdt}`} style={{ fontVariationSettings: '"FILL" 1' }}>{btn.i}</span>
@@ -2801,7 +2833,7 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
                ))}
           </motion.div>
 
-          {/* REGISTRO DE OPERAÇÕES (LIVE OPS) */}
+          {/* REGISTRO DE OPERAÃ‡Ã•ES (LIVE OPS) */}
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -2811,7 +2843,7 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
               <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-4">
                    <div className="flex items-center gap-2">
                        <span className="material-symbols-outlined text-[#00e5ff] text-[16px] animate-pulse">route</span>
-                       <h3 className="text-[10px] font-black tracking-[0.3em] uppercase text-white/60">REGISTRO DE OPERAÇÕES</h3>
+                       <h3 className="text-[10px] font-black tracking-[0.3em] uppercase text-white/60">REGISTRO DE OPERAÃ‡Ã•ES</h3>
                    </div>
                    <span className="text-[8px] font-black text-[#00e5ff] uppercase tracking-widest pl-4 py-1 border-l border-white/10 hover:text-white transition-colors cursor-pointer">VER TUDO</span>
               </div>
@@ -2831,17 +2863,17 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
               </div>
 
               {/* Event 2 */}
-              <div className="bg-[#14141c]/60 backdrop-blur-md border-l-2 border-[#FFD700] p-4 rounded-r-2xl flex items-center justify-between hover:bg-[#14141c] hover:translate-x-1 transition-all cursor-pointer shadow-md">
+              <div className="bg-[#14141c]/60 backdrop-blur-md border-l-2 border-[#FF6D00] p-4 rounded-r-2xl flex items-center justify-between hover:bg-[#14141c] hover:translate-x-1 transition-all cursor-pointer shadow-md">
                    <div className="flex items-center gap-4">
-                       <div className="w-10 h-10 bg-[#FFD700]/10 rounded-xl flex items-center justify-center border border-[#FFD700]/20">
-                           <span className="material-symbols-outlined text-[#FFD700] text-[18px]">payments</span>
+                       <div className="w-10 h-10 bg-[#FF6D00]/10 rounded-xl flex items-center justify-center border border-[#FF6D00]/20">
+                           <span className="material-symbols-outlined text-[#FF6D00] text-[18px]">payments</span>
                        </div>
                        <div>
                            <p className="text-white font-oswald font-bold tracking-wider text-[13px] mb-0.5">Pagamento Aprovado</p>
-                           <p className="text-[8px] text-white/40 font-bold uppercase tracking-widest">R$ 1.250,00 • Plano Elite</p>
+                           <p className="text-[8px] text-white/40 font-bold uppercase tracking-widest">R$ 1.250,00 â€¢ Plano Elite</p>
                        </div>
                    </div>
-                   <span className="text-[8px] text-white/30 tracking-widest uppercase font-black">há 2m</span>
+                   <span className="text-[8px] text-white/30 tracking-widest uppercase font-black">hÃ¡ 2m</span>
               </div>
 
               {/* Event 3 */}
@@ -2855,7 +2887,7 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
                            <p className="text-[8px] text-white/40 font-bold uppercase tracking-widest">Limite Excedido</p>
                        </div>
                    </div>
-                   <span className="text-[8px] text-[#ef4444] tracking-widest uppercase font-black">há 15m</span>
+                   <span className="text-[8px] text-[#ef4444] tracking-widest uppercase font-black">hÃ¡ 15m</span>
               </div>
               
               <button className="w-full mt-4 py-4 bg-[#14141c]/50 border border-white/5 rounded-[20px] text-[9px] text-[#00e5ff] font-black tracking-[0.2em] uppercase hover:bg-[#14141c] hover:border-[#00e5ff]/30 transition-all active:scale-95 group">
@@ -2875,7 +2907,7 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
 // Redundant versions removed
 
 // ==============================================
-// VIEWS DO RESPONSÁVEL
+// VIEWS DO RESPONSÃVEL
 // ==============================================
 
 export function MensalidadeView({ student }) {
@@ -2945,7 +2977,7 @@ export function MensalidadeView({ student }) {
               </div>
 
               <div className="flex-grow flex flex-col justify-center border-y border-white/5 py-4 my-2 relative">
-                 <div className="text-[9px] font-inter font-bold text-white/40 uppercase tracking-[0.2em] mb-2 relative z-10">Situação da Conta</div>
+                 <div className="text-[9px] font-inter font-bold text-white/40 uppercase tracking-[0.2em] mb-2 relative z-10">SituaÃ§Ã£o da Conta</div>
                  <div className="text-5xl font-oswald font-black italic tracking-tighter leading-none text-white relative z-10">
                     {!isPending ? 'PAGO' : 'ABERTO'}
                  </div>
@@ -2953,7 +2985,7 @@ export function MensalidadeView({ student }) {
 
               <div className="mt-4 flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse shadow-[0_0_10px_#10b981]" />
-                <span className="text-[10px] font-inter font-bold text-white uppercase tracking-[0.15em]">Mês de Outubro</span>
+                <span className="text-[10px] font-inter font-bold text-white uppercase tracking-[0.15em]">MÃªs de Outubro</span>
               </div>
             </div>
           </div>
@@ -3000,7 +3032,7 @@ export function MensalidadeView({ student }) {
               </div>
 
               <div className="flex-grow flex flex-col justify-center border-y border-white/5 py-4 my-2 relative">
-                 <div className="text-[9px] font-inter font-bold text-white/40 uppercase tracking-[0.2em] mb-2 relative z-10">Próxima Parcela</div>
+                 <div className="text-[9px] font-inter font-bold text-white/40 uppercase tracking-[0.2em] mb-2 relative z-10">PrÃ³xima Parcela</div>
                  <div className="text-5xl font-oswald font-black italic tracking-tighter leading-none text-white relative z-10">05 NOV</div>
               </div>
 
@@ -3011,13 +3043,13 @@ export function MensalidadeView({ student }) {
             </div>
           </div>
 
-          {/* Card 4: RESUMO DONUT COM ANIMAÇÃO */}
+          {/* Card 4: RESUMO DONUT COM ANIMAÃ‡ÃƒO */}
           <div className="snap-center shrink-0 w-[280px]">
             <div className="bg-[#0A0A0C] border border-white/5 rounded-[32px] p-7 flex flex-col h-[280px] relative overflow-hidden group hover:border-[#10b981]/20 transition-colors">
               <div className="flex justify-between items-start mb-4">
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-inter font-bold text-[#10b981] uppercase tracking-[0.2em] mb-1">Estatística</span>
-                  <span className="font-oswald text-xl font-bold text-white tracking-widest uppercase italic">Concluído</span>
+                  <span className="text-[9px] font-inter font-bold text-[#10b981] uppercase tracking-[0.2em] mb-1">EstatÃ­stica</span>
+                  <span className="font-oswald text-xl font-bold text-white tracking-widest uppercase italic">ConcluÃ­do</span>
                 </div>
               </div>
 
@@ -3052,7 +3084,7 @@ export function MensalidadeView({ student }) {
       </div>
 
       <div className="px-6 space-y-6">
-        {/* MÓDULO DE PAGAMENTO ATIVO */}
+        {/* MÃ“DULO DE PAGAMENTO ATIVO */}
         {isPending && (
           <div className="bg-[#0A0A0C] border border-[#10b981]/20 p-6 rounded-[32px] space-y-5">
             <div className="flex justify-between items-start">
@@ -3063,7 +3095,7 @@ export function MensalidadeView({ student }) {
                <div className="bg-[#10b981]/10 border border-[#10b981]/20 px-3 py-1.5 rounded-full flex items-center gap-2">
                   <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${status === 'review' ? 'bg-[#10b981]' : 'bg-[#10b981]/50'}`} />
                   <span className="text-[9px] font-inter font-bold text-[#10b981] uppercase tracking-widest">
-                     {status === 'review' ? 'Em Validação' : 'Aberto'}
+                     {status === 'review' ? 'Em ValidaÃ§Ã£o' : 'Aberto'}
                   </span>
                </div>
             </div>
@@ -3080,7 +3112,7 @@ export function MensalidadeView({ student }) {
             </div>
 
             <a 
-              href={`https://wa.me/5522999946772?text=${encodeURIComponent('olá, treinador, segue comprovante. Grato(a)!')}`} 
+              href={`https://wa.me/5522999946772?text=${encodeURIComponent('olÃ¡, treinador, segue comprovante. Grato(a)!')}`} 
               target="_blank" rel="noopener noreferrer" 
               className="w-full py-4 bg-[#10b981] rounded-2xl flex items-center justify-center gap-3 text-black font-oswald font-black uppercase tracking-[0.2em] text-sm hover:brightness-110 active:scale-95 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)]"
             >
@@ -3089,10 +3121,10 @@ export function MensalidadeView({ student }) {
           </div>
         )}
 
-        {/* HISTÓRICO VERTICAL (COM TOQUE VERDE PERMANENTE E LIMITE DE ITENS) */}
+        {/* HISTÃ“RICO VERTICAL (COM TOQUE VERDE PERMANENTE E LIMITE DE ITENS) */}
         <div className="pt-2">
           <div className="flex items-center justify-between mb-4">
-             <h3 className="font-oswald text-sm font-bold text-white/70 tracking-[0.2em] uppercase">Histórico de Fluxo</h3>
+             <h3 className="font-oswald text-sm font-bold text-white/70 tracking-[0.2em] uppercase">HistÃ³rico de Fluxo</h3>
           </div>
           
           <div className="space-y-3">
@@ -3126,7 +3158,7 @@ export function MensalidadeView({ student }) {
                 onClick={() => setShowAllHistory(!showAllHistory)}
                 className="w-full py-4 mt-2 bg-white/5 rounded-2xl border border-white/5 text-[10px] font-inter font-bold text-white/50 uppercase tracking-[0.2em] active:scale-95 transition-all hover:bg-white/10"
               >
-                {showAllHistory ? 'Ocultar Histórico' : 'Ver Todas as Mensalidades'}
+                {showAllHistory ? 'Ocultar HistÃ³rico' : 'Ver Todas as Mensalidades'}
               </button>
             )}
           </div>
@@ -3145,28 +3177,28 @@ export function AvisosView({ student, isGestorView = false }) {
   const missions = [
     {
       id: 3,
-      tag: 'LOGÍSTICA',
+      tag: 'LOGÃSTICA',
       tagColor: 'bg-[#7a45f0] text-white',
       tagRotation: 'rotate-[-2deg]',
       code: '#LOG-EQ10',
       codeColor: 'text-[#7a45f0]',
       lineColor: 'bg-[#7a45f0]',
       title: 'NOVA ARMADURA',
-      desc: '"O kit de alta performance da temporada chegou no almoxarifado. Retirada autorizada via solicitação."',
+      desc: '"O kit de alta performance da temporada chegou no almoxarifado. Retirada autorizada via solicitaÃ§Ã£o."',
       btnText: isGestorView ? 'ADMINISTRAR KITS' : 'REQUISITAR KIT',
       btnColor: 'bg-[#7a45f0] text-white',
       glowColor: 'rgba(122, 69, 240, 0.25)',
     },
     {
       id: 2,
-      tag: 'MISSÃO CRÍTICA',
+      tag: 'MISSÃƒO CRÃTICA',
       tagColor: 'bg-[#ef4444] text-white',
       tagRotation: 'rotate-[2deg]',
       code: '#OP-BIO99',
       codeColor: 'text-[#ef4444]',
       lineColor: 'bg-[#ef4444]',
-      title: 'AVALIAÇÃO BIO',
-      desc: '"Sua biométrica expirou. Risco de bloqueio iminente em 48h. Agende o reparo na central médica."',
+      title: 'AVALIAÃ‡ÃƒO BIO',
+      desc: '"Sua biomÃ©trica expirou. Risco de bloqueio iminente em 48h. Agende o reparo na central mÃ©dica."',
       btnText: isGestorView ? 'GERENCIAR ALERTAS' : 'AGENDAR AGORA',
       btnColor: 'bg-[#ef4444] text-white',
       glowColor: 'rgba(239, 68, 68, 0.25)',
@@ -3179,11 +3211,11 @@ export function AvisosView({ student, isGestorView = false }) {
       code: '#AVISO-TK72',
       codeColor: 'text-[#f59e0b]',
       lineColor: 'bg-[#f59e0b]',
-      title: 'TREINO TÁTICO',
-      desc: '"Foco em transição defensiva. Início tático às 08:00. Esteja no QG para aquecimento às 07:45."',
+      title: 'TREINO TÃTICO',
+      desc: '"Foco em transiÃ§Ã£o defensiva. InÃ­cio tÃ¡tico Ã s 08:00. Esteja no QG para aquecimento Ã s 07:45."',
       timestamp: '08:00',
       setor: 'CAMPO 02',
-      btnText: isGestorView ? 'NOTIFICAR TODOS' : 'CONFIRMAR MISSÃO',
+      btnText: isGestorView ? 'NOTIFICAR TODOS' : 'CONFIRMAR MISSÃƒO',
       btnColor: 'bg-[#f59e0b] text-black',
       glowColor: 'rgba(245, 158, 11, 0.25)',
     },
@@ -3199,7 +3231,7 @@ export function AvisosView({ student, isGestorView = false }) {
         <StandardHeader 
           title={isGestorView ? "CENTRAL DE" : "QUADRO DE"} 
           coloredPart="AVISOS" 
-          subtitle={isGestorView ? "GERENCIAMENTO TÁTICO" : `OPERAÇÕES ${categoryLabel}`} 
+          subtitle={isGestorView ? "GERENCIAMENTO TÃTICO" : `OPERAÃ‡Ã•ES ${categoryLabel}`} 
           accentColor="#7a45f0" 
           titleClass="text-4xl min-[400px]:text-5xl"
           rightElement={isGestorView && (
@@ -3214,7 +3246,7 @@ export function AvisosView({ student, isGestorView = false }) {
         <div className="flex items-center justify-between px-2">
           <div className="flex items-center gap-3">
              <div className="w-2 h-2 rounded-full bg-[#7a45f0] animate-pulse" />
-             <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.3em]">Comunicações Ativas</span>
+             <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.3em]">ComunicaÃ§Ãµes Ativas</span>
           </div>
           <div className="text-[9px] font-mono font-bold text-[#7a45f0]/60 uppercase tracking-tighter">
              SECURE_CHANNEL_V8
@@ -3265,7 +3297,7 @@ export function AvisosView({ student, isGestorView = false }) {
                     )}
                     {mission.setor && (
                       <div className="flex-1 bg-white/[0.03] px-6 py-4 rounded-3xl border border-white/5 flex flex-col items-center">
-                        <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1.5">Setor de Atuação</span>
+                        <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1.5">Setor de AtuaÃ§Ã£o</span>
                         <div className="flex items-center gap-2">
                            <Flag size={14} className="text-[#7a45f0]/60" />
                            <span className="font-oswald text-white font-bold text-xl tracking-tighter">{mission.setor}</span>
@@ -3277,7 +3309,7 @@ export function AvisosView({ student, isGestorView = false }) {
 
                 <motion.button 
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => toast.success(isGestorView ? 'COMANDOS ATUALIZADOS' : 'MISSÃO CONFIRMADA')}
+                  onClick={() => toast.success(isGestorView ? 'COMANDOS ATUALIZADOS' : 'MISSÃƒO CONFIRMADA')}
                   className={`w-full py-5 rounded-[24px] text-[10px] font-inter font-black tracking-[0.3em] uppercase transition-all shadow-xl ${mission.btnColor} hover:brightness-110 active:brightness-90`}
                   style={{ boxShadow: `0 10px 30px ${mission.glowColor}` }}
                 >
