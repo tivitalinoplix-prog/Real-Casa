@@ -67,7 +67,7 @@ function HudConfirmationModal({ isOpen, title, message, onConfirm, onCancel }) {
         initial={{ scale: 0.9, opacity: 0 }} 
         animate={{ scale: 1, opacity: 1 }} 
         exit={{ scale: 0.9, opacity: 0 }} 
-        className="bg-[#0D0D10] border border-[#FF6D00]/30 rounded-3xl p-8 max-w-sm w-full relative z-[210] shadow-[0_0_50px_rgba(255,215,0,0.15)]"
+        className="bg-[#0D0D10] border border-[#FFD700]/30 rounded-3xl p-8 max-w-sm w-full relative z-[210] shadow-[0_0_50px_rgba(255,215,0,0.15)]"
       >
         <div className="flex items-center gap-3 mb-6">
           <div className="w-10 h-10 rounded-xl bg-[#E50000]/20 border border-[#E50000]/30 flex items-center justify-center">
@@ -256,7 +256,7 @@ const CATEGORIES = [
 ];
 
 const getBoyPhoto = (_id) => 'https://images.pexels.com/photos/33217156/pexels-photo-33217156.jpeg';
-const CREST_URL = '/logo.png';
+const CREST_URL = 'https://i.postimg.cc/8kYGV4DF/Brasao.jpg';
 
 const initialStudents = [
   {
@@ -314,9 +314,9 @@ const ThemeStyles = () => (
       --brand-green: #00C853;
       --brand-red: #E50000;
       --brand-purple: #7e22ce;
-      --brand-gold: #FF6D00;
+      --brand-gold: #FFD700;
       --accent: #E50000;
-      --accent-gold: #FF6D00;
+      --accent-gold: #FFD700;
     }
     
     .font-oswald { font-family: 'Oswald', sans-serif; }
@@ -355,7 +355,7 @@ const ThemeStyles = () => (
 
     /* CSS Customizado Elite Performance (Perfil) */
     .dot-matrix-elite {
-        background-image: radial-gradient(#FF6D00 0.5px, transparent 0.5px);
+        background-image: radial-gradient(#FFD700 0.5px, transparent 0.5px);
         background-size: 20px 20px;
         opacity: 0.08;
     }
@@ -819,7 +819,7 @@ export default function App() {
                 <motion.div layoutId="navIndicatorGestor" transition={{ type: "spring", stiffness: 400, damping: 30 }} className="absolute top-[12px] w-8 h-[2px] bg-[#FF6D00] shadow-[0_1px_5px_#FF6D00]" />
               )}
               <span 
-                className={`material-symbols-outlined text-[24px] mb-1 transition-colors ${gestorTab === 'alunos' ? 'text-[#FF6D00] drop-shadow-[0_0_8px_rgba(255,215,0,0.5)]' : 'text-white/40 group-hover:text-[#FF6D00]/70'}`} 
+                className={`material-symbols-outlined text-[24px] mb-1 transition-colors ${gestorTab === 'alunos' ? 'text-[#FF6D00] drop-shadow-[0_0_8px_rgba(255,109,0,0.5)]' : 'text-white/40 group-hover:text-[#FF6D00]/70'}`} 
                 style={{ fontVariationSettings: gestorTab === 'alunos' ? '"FILL" 1' : '"FILL" 0' }}
               >
                 groups
@@ -1406,17 +1406,17 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
           title="ELENCO" 
           coloredPart="TÁTICO" 
           subtitle="RECRUTAMENTO & ELENCO" 
-          accentColor="#FF6D00" 
+          accentColor="#FFD700" 
           rightElement={
             <div className="flex items-center gap-2">
               <button 
                 onClick={() => {
                   toast.success('BAIXANDO BANCO DE DADOS', { 
                     description: 'Roster exportado em formato CSV.',
-                    style: { background: '#020204', color: '#FF6D00', border: '1px solid #FF6D0040' }
+                    style: { background: '#020204', color: '#FFD700', border: '1px solid #FFD70040' }
                   });
                 }}
-                className="w-10 h-14 bg-white/5 backdrop-blur-xl rounded-l-xl rounded-r-sm flex items-center justify-center text-[#FF6D00] shadow-inner active:scale-90 transition-transform hover:bg-[#FF6D00]/10 border border-[#FF6D00]/20"
+                className="w-10 h-14 bg-white/5 backdrop-blur-xl rounded-l-xl rounded-r-sm flex items-center justify-center text-[#FFD700] shadow-inner active:scale-90 transition-transform hover:bg-[#FFD700]/10 border border-[#FFD700]/20"
                 style={{ clipPath: 'polygon(0% 0%, 100% 0%, 85% 100%, 0% 100%)' }}
                 title="Exportar CSV"
               >
@@ -1424,7 +1424,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
               </button>
               <button 
                 onClick={() => setShowForm(true)}
-                className="w-14 h-14 bg-[#FF6D00] rounded-r-xl rounded-l-sm flex items-center justify-center text-black shadow-[0_0_20px_rgba(255,215,0,0.3)] active:scale-90 transition-transform hover:brightness-110"
+                className="w-14 h-14 bg-[#FFD700] rounded-r-xl rounded-l-sm flex items-center justify-center text-black shadow-[0_0_20px_rgba(255,215,0,0.3)] active:scale-90 transition-transform hover:brightness-110"
                 style={{ clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
               >
                 <Plus size={24} />
@@ -1438,18 +1438,18 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
         {/* Search Input HUD */}
         <div className="relative group">
           <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-            <Search className="text-[#FF6D00]/50 group-focus-within:text-[#FF6D00] transition-colors" size={18} />
+            <Search className="text-[#FFD700]/50 group-focus-within:text-[#FFD700] transition-colors" size={18} />
           </div>
           <input 
             type="text" 
             placeholder="PROCURAR ATLETA..." 
             value={search} 
             onChange={(e) => setSearch(e.target.value)} 
-            className="w-full bg-[#14141c]/60 backdrop-blur-xl border border-white/5 text-white font-oswald text-xs tracking-widest rounded-r-3xl rounded-l-md py-5 pl-12 pr-4 focus:outline-none focus:border-[#FF6D00]/40 transition-all placeholder:text-white/20 uppercase" 
+            className="w-full bg-[#14141c]/60 backdrop-blur-xl border border-white/5 text-white font-oswald text-xs tracking-widest rounded-r-3xl rounded-l-md py-5 pl-12 pr-4 focus:outline-none focus:border-[#FFD700]/40 transition-all placeholder:text-white/20 uppercase" 
           />
           <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-1">
-            <div className="w-1 h-3 bg-[#FF6D00]/20 rounded-full" />
-            <div className="w-1 h-3 bg-[#FF6D00]/40 rounded-full" />
+            <div className="w-1 h-3 bg-[#FFD700]/20 rounded-full" />
+            <div className="w-1 h-3 bg-[#FFD700]/40 rounded-full" />
           </div>
         </div>
 
@@ -1458,7 +1458,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
           <div className="space-y-4 bg-white/5 p-4 rounded-2xl border border-white/5 backdrop-blur-md">
             {/* Category HUD Filters */}
             <div className="space-y-2">
-              <span className="text-[7px] font-black text-[#FF6D00] uppercase tracking-[0.2em] ml-1 opacity-60">Filtrar Categoria</span>
+              <span className="text-[7px] font-black text-[#FFD700] uppercase tracking-[0.2em] ml-1 opacity-60">Filtrar Categoria</span>
               <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
                 {['Todos', ...CATEGORIES.map((c) => c.id)].map((cat) => {
                   const isActive = selectedCat === cat;
@@ -1469,7 +1469,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                       onClick={() => setSelectedCat(cat)} 
                       className={`px-4 py-1.5 rounded-sm font-headline text-[9px] tracking-widest uppercase transition-all border whitespace-nowrap
                         ${isActive 
-                          ? 'bg-[#FF6D00] text-black border-[#FF6D00] shadow-[0_0_10px_rgba(255,215,0,0.3)]' 
+                          ? 'bg-[#FFD700] text-black border-[#FFD700] shadow-[0_0_10px_rgba(255,215,0,0.3)]' 
                           : 'bg-[#14141c]/40 text-white/40 border-white/5'}`}
                       style={{ clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)' }}
                     >
@@ -1482,7 +1482,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
 
             {/* Position HUD Filters */}
             <div className="space-y-2">
-              <span className="text-[7px] font-black text-[#FF6D00] uppercase tracking-[0.2em] ml-1 opacity-60">Filtrar Posição</span>
+              <span className="text-[7px] font-black text-[#FFD700] uppercase tracking-[0.2em] ml-1 opacity-60">Filtrar Posição</span>
               <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
                 {positions.map((pos) => {
                   const isActive = selectedPos === pos;
@@ -1505,7 +1505,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
 
             {/* Payment HUD Filters */}
             <div className="space-y-2">
-              <span className="text-[7px] font-black text-[#FF6D00] uppercase tracking-[0.2em] ml-1 opacity-60">Status Pagamento</span>
+              <span className="text-[7px] font-black text-[#FFD700] uppercase tracking-[0.2em] ml-1 opacity-60">Status Pagamento</span>
               <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
                 {payStatus.map((status) => {
                   const isActive = selectedPay === status.id;
@@ -1535,20 +1535,20 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
               variants={itemVariant} 
               key={student.id} 
               onClick={() => onOpenProfile(student.id)} 
-              className="group bg-[#14141c]/40 backdrop-blur-2xl rounded-2xl border border-white/5 p-4 flex items-center gap-4 cursor-pointer hover:bg-[#14141c]/60 hover:border-[#FF6D00]/20 transition-all relative overflow-hidden shadow-xl card-holo-glow"
+              className="group bg-[#14141c]/40 backdrop-blur-2xl rounded-2xl border border-white/5 p-4 flex items-center gap-4 cursor-pointer hover:bg-[#14141c]/60 hover:border-[#FFD700]/20 transition-all relative overflow-hidden shadow-xl card-holo-glow"
               style={{ '--card-glow': 'rgba(255,215,0,0.1)' } as any}
             >
               {/* Card Decoration */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#FF6D00]/5 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#FFD700]/5 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
               <div className="relative">
                 <img 
                   src={student.photo} 
                   alt={student.name} 
-                  className="w-16 h-16 rounded-xl object-cover border border-white/10 group-hover:border-[#FF6D00]/40 transition-colors" 
+                  className="w-16 h-16 rounded-xl object-cover border border-white/10 group-hover:border-[#FFD700]/40 transition-colors" 
                 />
-                <div className="absolute -bottom-1 -right-1 bg-black/80 border border-white/20 px-1.5 py-0.5 rounded text-[7px] font-bold text-[#FF6D00] tracking-tighter">
+                <div className="absolute -bottom-1 -right-1 bg-black/80 border border-white/20 px-1.5 py-0.5 rounded text-[7px] font-bold text-[#FFD700] tracking-tighter">
                   ID.{student.id.toString().slice(-4)}
                 </div>
               </div>
@@ -1558,7 +1558,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                   {student.name.split(' ')[0]} <span className="text-white/40">{student.name.split(' ').slice(1).join(' ')}</span>
                 </h4>
                 <div className="flex items-center gap-2">
-                  <span className="font-inter text-[8px] text-[#FF6D00] font-black uppercase tracking-[0.2em]">
+                  <span className="font-inter text-[8px] text-[#FFD700] font-black uppercase tracking-[0.2em]">
                     {student.category.replace('sub', 'SUB-')}
                   </span>
                   <div className="w-1 h-1 rounded-full bg-white/20" />
@@ -1583,14 +1583,14 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     </button>
                   )}
-                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-[#FF6D00] group-hover:text-black transition-all">
+                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-[#FFD700] group-hover:text-black transition-all">
                     <ChevronLeft size={16} className="rotate-180" />
                   </div>
                 </div>
                 <div className="flex gap-1">
                   {student.accessCode && (
-                    <div className="px-2 py-0.5 rounded-sm bg-[#FF6D00]/10 border border-[#FF6D00]/20">
-                      <span className="text-[6px] text-[#FF6D00] font-bold uppercase tracking-widest">{student.accessCode}</span>
+                    <div className="px-2 py-0.5 rounded-sm bg-[#FFD700]/10 border border-[#FFD700]/20">
+                      <span className="text-[6px] text-[#FFD700] font-bold uppercase tracking-widest">{student.accessCode}</span>
                     </div>
                   )}
                   {student.paymentStatus === 'pending' && (
@@ -1624,12 +1624,12 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 30 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="bg-[#0D0D10] w-full max-w-sm mx-auto rounded-[40px] p-8 relative z-[110] border border-[#FF6D00]/30 shadow-[0_30px_70px_rgba(0,0,0,1)] max-h-[85vh] overflow-y-auto no-scrollbar"
+              className="bg-[#0D0D10] w-full max-w-sm mx-auto rounded-[40px] p-8 relative z-[110] border border-[#FFD700]/30 shadow-[0_30px_70px_rgba(0,0,0,1)] max-h-[85vh] overflow-y-auto no-scrollbar"
             >
               <div className="flex justify-between items-center mb-8">
                 <div className="flex flex-col">
-                  <span className="font-inter text-[8px] text-[#FF6D00] tracking-[0.4em] font-bold uppercase mb-1">REGISTRO DE ASPIRANTE</span>
-                  <h3 className="font-massive italic text-3xl text-white tracking-widest uppercase leading-none">NOVO <span className="text-[#FF6D00]">TALENTO</span></h3>
+                  <span className="font-inter text-[8px] text-[#FFD700] tracking-[0.4em] font-bold uppercase mb-1">REGISTRO DE ASPIRANTE</span>
+                  <h3 className="font-massive italic text-3xl text-white tracking-widest uppercase leading-none">NOVO <span className="text-[#FFD700]">TALENTO</span></h3>
                 </div>
                 <button 
                   onClick={() => setShowForm(false)} 
@@ -1644,12 +1644,12 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                 <div className="flex justify-center mb-8">
                   <label className="relative cursor-pointer group">
                     <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} />
-                    <div className="w-32 h-32 rounded-3xl bg-[#14141c] border-2 border-dashed border-white/10 flex items-center justify-center overflow-hidden relative group-hover:border-[#FF6D00]/50 transition-all">
+                    <div className="w-32 h-32 rounded-3xl bg-[#14141c] border-2 border-dashed border-white/10 flex items-center justify-center overflow-hidden relative group-hover:border-[#FFD700]/50 transition-all">
                       {formData.photo ? (
                         <img src={formData.photo} className="w-full h-full object-cover" alt="Preview" />
                       ) : (
                         <div className="flex flex-col items-center gap-2">
-                          <Camera size={32} className="text-white/20 group-hover:text-[#FF6D00] transition-colors" />
+                          <Camera size={32} className="text-white/20 group-hover:text-[#FFD700] transition-colors" />
                           <span className="text-[7px] text-white/20 font-black uppercase tracking-widest">SUBIR ARQUIVO</span>
                         </div>
                       )}
@@ -1660,13 +1660,13 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                 <div className="space-y-4">
                   <div className="space-y-1">
                     <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">Identificação</label>
-                    <input required type="text" placeholder="NOME COMPLETO" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FF6D00]/40 placeholder:text-white/10" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+                    <input required type="text" placeholder="NOME COMPLETO" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FFD700]/40 placeholder:text-white/10" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
                   </div>
 
                   <div className="flex gap-4">
                     <div className="flex-1 space-y-1">
                       <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">Cronologia</label>
-                      <input required type="number" placeholder="IDADE" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FF6D00]/40 placeholder:text-white/10" value={formData.age} onChange={(e) => setFormData({ ...formData, age: e.target.value, category: suggestCategoryByAge(Number(e.target.value)) })} />
+                      <input required type="number" placeholder="IDADE" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FFD700]/40 placeholder:text-white/10" value={formData.age} onChange={(e) => setFormData({ ...formData, age: e.target.value, category: suggestCategoryByAge(Number(e.target.value)) })} />
                     </div>
                     <div className="flex-1 space-y-1">
                       <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">Segmento</label>
@@ -1696,11 +1696,11 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                   <div className="pt-4 space-y-4">
                     <div className="space-y-1">
                       <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">Tutor Legal</label>
-                      <input required type="text" placeholder="NOME DO RESPONSÁVEL" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FF6D00]/40 placeholder:text-white/10" value={formData.guardian} onChange={(e) => setFormData({ ...formData, guardian: e.target.value })} />
+                      <input required type="text" placeholder="NOME DO RESPONSÁVEL" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FFD700]/40 placeholder:text-white/10" value={formData.guardian} onChange={(e) => setFormData({ ...formData, guardian: e.target.value })} />
                     </div>
                     <div className="space-y-1">
                       <label className="text-[8px] font-black text-white/30 uppercase tracking-[0.3em] ml-2">Comunicação WhatsApp</label>
-                      <input required type="tel" placeholder="(00) 0 0000-0000" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FF6D00]/40 placeholder:text-white/10" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+                      <input required type="tel" placeholder="(00) 0 0000-0000" className="w-full bg-[#14141c] border border-white/5 rounded-2xl px-6 py-5 text-sm font-oswald tracking-widest text-white outline-none focus:border-[#FFD700]/40 placeholder:text-white/10" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
                     </div>
                   </div>
                 </div>
@@ -1708,7 +1708,7 @@ function RosterView({ students, setStudents, onOpenProfile, isFocusMode }) {
                   <div className="pt-6">
                     <button 
                       type="submit" 
-                      className="w-full bg-[#FF6D00] text-black font-oswald text-xl py-5 rounded-2xl flex items-center justify-center gap-3 tracking-[0.4em] uppercase shadow-[0_0_40px_rgba(255,215,0,0.3)] hover:brightness-110 active:scale-95 transition-all"
+                      className="w-full bg-[#FFD700] text-black font-oswald text-xl py-5 rounded-2xl flex items-center justify-center gap-3 tracking-[0.4em] uppercase shadow-[0_0_40px_rgba(255,215,0,0.3)] hover:brightness-110 active:scale-95 transition-all"
                     >
                       <Save size={20} /> FINALIZAR CADASTRO
                     </button>
@@ -1750,7 +1750,7 @@ function AttendanceView({ students }) {
         title="PLANO" 
         coloredPart="DE CHAMADA" 
         subtitle="CONTROLE TÁTICO DE PRESENÇA" 
-        accentColor="#00e5ff" 
+        accentColor="#FF6D00" 
       />
 
       <div className="px-6 space-y-8 relative z-10 flex-1">
@@ -1787,31 +1787,33 @@ function AttendanceView({ students }) {
               placeholder="PESQUISAR ATLETA..." 
               value={search} 
               onChange={(e) => setSearch(e.target.value)} 
-              className="w-full bg-[#14141c]/60 backdrop-blur-xl border border-white/5 text-white font-oswald text-xs tracking-widest rounded-r-3xl rounded-l-md py-5 pl-12 pr-4 focus:outline-none focus:border-[#00e5ff]/40 transition-all placeholder:text-white/20 uppercase" 
+              className="w-full bg-[#14141c]/60 backdrop-blur-xl border border-white/5 text-white font-oswald text-xs tracking-widest rounded-r-3xl rounded-l-md py-5 pl-12 pr-4 focus:outline-none focus:border-[#FF6D00]/40 transition-all placeholder:text-white/20 uppercase" 
             />
           </div>
 
           <div className="flex items-center gap-3 overflow-x-auto no-scrollbar pb-1">
             <button 
               onClick={() => setSelectedCat('all')} 
-              className={`px-6 py-3 rounded-xl font-inter font-black text-[9px] tracking-[0.15em] uppercase transition-all shrink-0 border ${
+              className={`px-6 py-3 rounded-xl font-inter font-black text-[9px] tracking-[0.15em] uppercase transition-all shrink-0 border relative ${
                 selectedCat === 'all' 
-                ? 'bg-[#00e5ff] text-black border-[#00e5ff] shadow-[0_0_15px_rgba(0,229,255,0.4)]' 
+                ? 'bg-[#FF6D00] text-black border-[#FF6D00] shadow-[0_0_15px_rgba(255,109,0,0.4)]' 
                 : 'bg-[#14141c]/60 text-white/40 border-white/5'
               }`}
             >
+              {selectedCat === 'all' && <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[60%] bg-white/80 rounded-r" />}
               TODOS OS ESCALÕES
             </button>
             {CATEGORIES.map((cat) => (
               <button 
                 key={cat.id} 
                 onClick={() => setSelectedCat(cat.id)} 
-                className={`px-5 py-3 rounded-xl font-inter font-black text-[9px] tracking-[0.15em] uppercase transition-all shrink-0 border ${
+                className={`px-5 py-3 rounded-xl font-inter font-black text-[9px] tracking-[0.15em] uppercase transition-all shrink-0 border relative ${
                   selectedCat === cat.id 
-                  ? 'bg-white text-black border-white' 
+                  ? 'bg-[#FF6D00] text-black border-[#FF6D00] shadow-[0_0_15px_rgba(255,109,0,0.4)]' 
                   : 'bg-[#14141c]/60 text-white/40 border-white/5'
                 }`}
               >
+                {selectedCat === cat.id && <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[60%] bg-white/80 rounded-r" />}
                 {cat.label}
               </button>
             ))}
@@ -1846,7 +1848,7 @@ function AttendanceView({ students }) {
                       <div>
                         <h4 className="font-oswald font-bold text-white text-base tracking-wide uppercase leading-none">{student.name.split(' ').slice(0, 2).join(' ')}</h4>
                         <div className="flex items-center gap-2 mt-2">
-                           <span className="px-1.5 py-0.5 rounded bg-white/5 text-[7px] font-black text-white/30 uppercase border border-white/5 tracking-tighter">{student.category.replace('sub', 'U-')}</span>
+                           <span className="px-1.5 py-0.5 rounded bg-[#FF6D00]/15 text-[7px] font-black text-[#FF6D00] uppercase border border-[#FF6D00]/20 tracking-tighter">{student.category.replace('sub', 'U-')}</span>
                            <span className="text-[9px] font-inter font-black text-white/30 uppercase tracking-widest">{student.position}</span>
                         </div>
                       </div>
@@ -1967,7 +1969,7 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
       toast.success(`${labels[type]} registrado!`, { 
         style: { background: '#020204', color: '#ff4d4d', border: '1px solid #ff4d4d40' }
       });
-      if (type === 'goals') confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#FF6D00', '#ff4d4d', '#00ec5e'] });
+      if (type === 'goals') confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#FFD700', '#ff4d4d', '#00ec5e'] });
     }
   };
 
@@ -2056,7 +2058,7 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
                   </div>
                   <div className="flex gap-5">
                     <div className="flex flex-col items-center">
-                      <span className="text-[7px] font-black text-[#FF6D00] uppercase tracking-widest leading-none mb-1 drop-shadow-md">Gols</span>
+                      <span className="text-[7px] font-black text-[#FFD700] uppercase tracking-widest leading-none mb-1 drop-shadow-md">Gols</span>
                       <span className="font-massive italic text-2xl text-white">{student.goals || 0}</span>
                     </div>
                     <div className="flex flex-col items-center">
@@ -2077,9 +2079,9 @@ function ScoutView({ students, setStudents, onConfirmAction }) {
                       <div className="p-6 pt-2 space-y-6 relative z-10" onClick={(e) => e.stopPropagation()}>
                         {/* AÇÕES RÁPIDAS HUD */}
                         <div className="grid grid-cols-2 gap-4 border-t border-[#ff4d4d]/20 pt-6">
-                           <button onClick={(e) => { e.stopPropagation(); updateStat(student.id, 'goals', 1); }} className="bg-gradient-to-b from-[#FF6D00]/10 to-[#FF6D00]/5 border border-[#FF6D00]/30 py-6 px-4 rounded-2xl flex flex-col items-center gap-2 hover:from-[#FF6D00]/20 hover:to-[#FF6D00]/10 transition-all shadow-[0_4px_20px_-10px_rgba(255,215,0,0.3)] active:scale-95 group">
-                              <span className="material-symbols-outlined text-[28px] text-[#FF6D00] group-hover:scale-110 transition-transform">sports_soccer</span>
-                              <span className="text-[10px] font-black text-[#FF6D00] uppercase tracking-[0.2em]">Gol</span>
+                           <button onClick={(e) => { e.stopPropagation(); updateStat(student.id, 'goals', 1); }} className="bg-gradient-to-b from-[#FFD700]/10 to-[#FFD700]/5 border border-[#FFD700]/30 py-6 px-4 rounded-2xl flex flex-col items-center gap-2 hover:from-[#FFD700]/20 hover:to-[#FFD700]/10 transition-all shadow-[0_4px_20px_-10px_rgba(255,215,0,0.3)] active:scale-95 group">
+                              <span className="material-symbols-outlined text-[28px] text-[#FFD700] group-hover:scale-110 transition-transform">sports_soccer</span>
+                              <span className="text-[10px] font-black text-[#FFD700] uppercase tracking-[0.2em]">Gol</span>
                            </button>
                            <button onClick={(e) => { e.stopPropagation(); updateStat(student.id, 'tackles', 1); }} className="bg-gradient-to-b from-[#00ec5e]/10 to-[#00ec5e]/5 border border-[#00ec5e]/30 py-6 px-4 rounded-2xl flex flex-col items-center gap-2 hover:from-[#00ec5e]/20 hover:to-[#00ec5e]/10 transition-all shadow-[0_4px_20px_-10px_rgba(0,236,94,0.3)] active:scale-95 group">
                               <span className="material-symbols-outlined text-[28px] text-[#00ec5e] group-hover:scale-110 transition-transform">security</span>
@@ -2614,7 +2616,7 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
       className="flex flex-col flex-1 pb-[120px] relative text-white bg-[#020204] overflow-x-hidden min-h-screen font-inter"
     >
       {/* Malha Télemétrica Dourada Sutil */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-screen" style={{ backgroundImage: 'linear-gradient(#FF6D00 1px, transparent 1px), linear-gradient(90deg, #FF6D00 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-screen" style={{ backgroundImage: 'linear-gradient(#FFD700 1px, transparent 1px), linear-gradient(90deg, #FFD700 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
       <div className="absolute top-0 w-full h-[500px] bg-gradient-to-b from-[#00e5ff]/5 to-transparent pointer-events-none mix-blend-overlay" />
       
       {/* HUD Scanline Effect for immersion */}
@@ -2803,7 +2805,7 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
             className="grid grid-cols-4 gap-3 py-2"
           >
                {[
-                 { i: 'groups', l: 'ATLETAS', hc: 'group-hover:text-[#FF6D00]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]', onClick: () => setGestorTab('alunos') },
+                 { i: 'groups', l: 'ATLETAS', hc: 'group-hover:text-[#FFD700]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]', onClick: () => setGestorTab('alunos') },
                  { i: 'checklist', l: 'CHAMADA', hc: 'group-hover:text-[#00C853]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(0,200,83,0.6)]', onClick: () => setGestorTab('chamada') },
                  { i: 'monitoring', l: 'SCOUT', hc: 'group-hover:text-[#E50000]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(229,0,0,0.6)]', onClick: () => setGestorTab('scout') },
                  { i: 'payments', l: 'FINANÇAS', hc: 'group-hover:text-[#00C853]', hdt: 'group-hover:drop-shadow-[0_0_8px_rgba(0,200,83,0.6)]', onClick: () => setGestorTab('financeiro') }
@@ -2845,10 +2847,10 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
               </div>
 
               {/* Event 2 */}
-              <div className="bg-[#14141c]/60 backdrop-blur-md border-l-2 border-[#FF6D00] p-4 rounded-r-2xl flex items-center justify-between hover:bg-[#14141c] hover:translate-x-1 transition-all cursor-pointer shadow-md">
+              <div className="bg-[#14141c]/60 backdrop-blur-md border-l-2 border-[#FFD700] p-4 rounded-r-2xl flex items-center justify-between hover:bg-[#14141c] hover:translate-x-1 transition-all cursor-pointer shadow-md">
                    <div className="flex items-center gap-4">
-                       <div className="w-10 h-10 bg-[#FF6D00]/10 rounded-xl flex items-center justify-center border border-[#FF6D00]/20">
-                           <span className="material-symbols-outlined text-[#FF6D00] text-[18px]">payments</span>
+                       <div className="w-10 h-10 bg-[#FFD700]/10 rounded-xl flex items-center justify-center border border-[#FFD700]/20">
+                           <span className="material-symbols-outlined text-[#FFD700] text-[18px]">payments</span>
                        </div>
                        <div>
                            <p className="text-white font-oswald font-bold tracking-wider text-[13px] mb-0.5">Pagamento Aprovado</p>
