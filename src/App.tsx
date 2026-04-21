@@ -904,7 +904,7 @@ export default function App() {
                 className={`material-symbols-outlined text-[26px] mb-1 transition-colors ${responsavelTab === 'meuFilho' ? 'text-[#f59e0b] drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]' : 'text-white/40 group-hover:text-[#f59e0b]/70'}`} 
                 style={{ fontVariationSettings: responsavelTab === 'meuFilho' ? '"FILL" 1' : '"FILL" 0' }}
               >
-                target
+                sports_soccer
               </span>
               <span className={`font-inter text-[9px] font-bold uppercase tracking-[0.1em] transition-colors ${responsavelTab === 'meuFilho' ? 'text-[#f59e0b]' : 'text-white/40 group-hover:text-[#f59e0b]/70'}`}>
                 Atleta
