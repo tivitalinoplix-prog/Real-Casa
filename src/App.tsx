@@ -831,15 +831,15 @@ export default function App() {
 
             <button onClick={() => setGestorTab('chamada')} className="relative flex flex-col items-center justify-center flex-1 h-full group">
               {gestorTab === 'chamada' && (
-                <motion.div layoutId="navIndicatorGestor" transition={{ type: "spring", stiffness: 400, damping: 30 }} className="absolute top-[12px] w-8 h-[2px] bg-[#00C853] shadow-[0_1px_5px_#00C853]" />
+                <motion.div layoutId="navIndicatorGestor" transition={{ type: "spring", stiffness: 400, damping: 30 }} className="absolute top-[12px] w-8 h-[2px] bg-[#FF6D00] shadow-[0_1px_5px_#FF6D00]" />
               )}
               <span 
-                className={`material-symbols-outlined text-[24px] mb-1 transition-colors ${gestorTab === 'chamada' ? 'text-[#00C853] drop-shadow-[0_0_8px_rgba(0,200,83,0.5)]' : 'text-white/40 group-hover:text-[#00C853]/70'}`} 
+                className={`material-symbols-outlined text-[24px] mb-1 transition-colors ${gestorTab === 'chamada' ? 'text-[#FF6D00] drop-shadow-[0_0_8px_rgba(255,109,0,0.5)]' : 'text-white/40 group-hover:text-[#FF6D00]/70'}`} 
                 style={{ fontVariationSettings: gestorTab === 'chamada' ? '"FILL" 1' : '"FILL" 0' }}
               >
                 checklist
               </span>
-              <span className={`font-inter text-[8px] font-bold uppercase tracking-[0.1em] transition-colors ${gestorTab === 'chamada' ? 'text-[#00C853]' : 'text-white/40 group-hover:text-[#00C853]/70'}`}>
+              <span className={`font-inter text-[8px] font-bold uppercase tracking-[0.1em] transition-colors ${gestorTab === 'chamada' ? 'text-[#FF6D00]' : 'text-white/40 group-hover:text-[#FF6D00]/70'}`}>
                 Chamada
               </span>
             </button>
