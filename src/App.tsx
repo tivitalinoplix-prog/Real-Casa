@@ -1888,11 +1888,11 @@ function AttendanceView({ students }) {
           <button 
             onClick={() => toast.success('OPERACIONAL ATUALIZADO', { 
               description: 'Relatório compilado e sincronizado com a Central.',
-              style: { background: '#020204', color: '#00e5ff', border: '1px solid #00e5ff40' }
+              style: { background: '#020204', color: '#FF6D00', border: '1px solid #FF6D0040' }
             })} 
-            className="w-full relative h-16 rounded-2xl overflow-hidden transition-all active:scale-95 shadow-[0_15px_30px_-10px_rgba(0,229,255,0.4)]"
+            className="w-full relative h-16 rounded-2xl overflow-hidden transition-all active:scale-95 shadow-[0_15px_30px_-10px_rgba(255,109,0,0.4)]"
           >
-            <div className="absolute inset-0 bg-[#00e5ff]" />
+            <div className="absolute inset-0 bg-[#FF6D00]" />
             <div className="relative h-full flex items-center justify-center gap-3">
               <span className="font-brand tracking-[0.4em] text-black text-[10px] uppercase ml-1">Salvar Relatório</span>
             </div>
@@ -2724,7 +2724,7 @@ export function HomeGestor({ setGestorTab }: { setGestorTab: (tab: string) => vo
               <div className="relative z-10 flex items-center gap-5">
                   <div className="relative">
                       {/* Using the reference photo for Lucas Silva */}
-                      <img src="https://images.unsplash.com/photo-1431324155629-1a6eda1eed2d?q=80&w=200&auto=format&fit=crop" className="w-[68px] h-[68px] rounded-2xl object-cover border border-[#00e5ff]/30 shadow-[0_0_20px_rgba(0,229,255,0.15)] grayscale-[30%] brightness-110 contrast-110" alt="MVP Lucas Silva" />
+                      <img src={getBoyPhoto('lucas')} className="w-[68px] h-[68px] rounded-2xl object-cover border border-[#00e5ff]/30 shadow-[0_0_20px_rgba(0,229,255,0.15)] grayscale-[30%] brightness-110 contrast-110" alt="MVP Lucas Silva" />
                       <div className="absolute -bottom-2 -right-2 bg-[#00e5ff] text-[#020204] text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-widest">NÍVEL 1</div>
                   </div>
                   <div className="flex-1">
