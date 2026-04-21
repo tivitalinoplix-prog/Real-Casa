@@ -1764,14 +1764,14 @@ function AttendanceView({ students }) {
               <span className="text-white/20 font-inter text-xs mb-1 font-bold">/ {globalTotal}</span>
             </div>
             <div className="h-1 w-full bg-white/5 rounded-full mt-2 overflow-hidden">
-               <motion.div initial={{ width: 0 }} animate={{ width: `${globalPercent}%` }} className="h-full bg-[#00e5ff]" />
+               <motion.div initial={{ width: 0 }} animate={{ width: `${globalPercent}%` }} className="h-full bg-[#FF6D00]" />
             </div>
           </div>
-          <div className="bg-[#14141c]/60 backdrop-blur-xl border-l border-white/5 p-5 flex flex-col gap-1 rounded-2xl card-holo-glow" style={{ '--card-glow': 'rgba(0,229,255,0.1)' } as any}>
+          <div className="bg-[#14141c]/60 backdrop-blur-xl border-l border-white/5 p-5 flex flex-col gap-1 rounded-2xl card-holo-glow" style={{ '--card-glow': 'rgba(255,109,0,0.1)' } as any}>
              <span className="text-[7px] font-black text-white/20 uppercase tracking-[0.3em]">Eficiência Global</span>
-             <span className="font-massive text-3xl text-[#00e5ff] italic">{globalPercent}%</span>
+             <span className="font-massive text-3xl text-[#FF6D00] italic">{globalPercent}%</span>
              <span className="text-[7px] font-inter text-white/40 font-bold uppercase tracking-widest mt-2 flex items-center gap-1">
-               <div className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse" /> Sincronizado
+               <div className="w-1.5 h-1.5 rounded-full bg-[#FF6D00] animate-pulse" /> Sincronizado
              </span>
           </div>
         </div>
@@ -1780,7 +1780,7 @@ function AttendanceView({ students }) {
         <div className="space-y-4">
           <div className="relative group">
             <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-              <Search className="text-[#00e5ff]/50 group-focus-within:text-[#00e5ff] transition-colors" size={18} />
+              <Search className="text-[#FF6D00]/50 group-focus-within:text-[#FF6D00] transition-colors" size={18} />
             </div>
             <input 
               type="text" 
